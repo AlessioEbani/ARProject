@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9671fa2e011048a8ae2a46ece99ddc0f, type: 3}
+  m_Name: test_pawn_3
+  m_EditorClassIdentifier: 
+  name: Asdrubale
+  alignment: LB
+  CR: 3
+  type: Umanoide
+  description: "Il paladino pi\xF9 coraggioso che c'\xE8"
+  model: {fileID: 1649547054411582166, guid: e74c7eb44cca3184db36964f21fa4b66, type: 3}
