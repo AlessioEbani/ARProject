@@ -4,7 +4,8 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Snapper : MonoBehaviour {
     private Vector3Int size;
-
+    private GridManager gridManager;
+    
     private void OnDrawGizmos() {
         if (!Application.isPlaying) {
             UpdateSize();
@@ -13,10 +14,13 @@ public class Snapper : MonoBehaviour {
 
     void Start() {
         UpdateSize();
+        gridManager = FindObjectOfType<GridManager>();
     }
 
     void Update() {
-        SnapToGrid();
+        if (gridManager) {
+            SnapToGrid();
+        }
     }
 
     private void UpdateSize() {
@@ -31,8 +35,11 @@ public class Snapper : MonoBehaviour {
         if (size.x % 2 == 0) {
             posX += 0.5f;
         }
-        
-        float posY = Mathf.RoundToInt(currentPosition.y);
+        var posY = (size.y % 2 == 0) ? currentPosition.y - 0.5f : currentPosition.y;
+        posY = Mathf.RoundToInt(currentPosition.y);
+        if (size.y % 2 == 0) {
+            posY += 0.5f;
+        }
         
         float posZ = (size.z % 2 == 0) ? currentPosition.z - 0.5f : currentPosition.z;
         posZ = Mathf.RoundToInt(posZ);

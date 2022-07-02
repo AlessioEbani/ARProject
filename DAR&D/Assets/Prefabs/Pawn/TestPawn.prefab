@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4579859949087020657}
   - component: {fileID: 2797397322314871902}
+  - component: {fileID: -2303900795662168953}
   m_Layer: 0
   m_Name: TestPawn
   m_TagString: Untagged
@@ -45,6 +46,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337b4bf5c4a8cd540926ccea4f555826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2303900795662168953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4579859949087020658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90e5f64555104f2c9305e378babfd575, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pawn: {fileID: 11400000, guid: effd3129dbe07a043b1ef9223f401096, type: 2}
 --- !u!1 &4579859949353034551
 GameObject:
   m_ObjectHideFlags: 0
