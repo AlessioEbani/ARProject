@@ -30,21 +30,28 @@ public class Snapper : MonoBehaviour {
 
     private void SnapToGrid() {
         var currentPosition = transform.position;
-        var posX = (size.x % 2 == 0) ? currentPosition.x - 0.5f : currentPosition.x;
+        var value = currentPosition.x / gridManager.gridUnit;
+        var posX = (size.x % 2 == 0) ? value - gridManager.gridUnit/2 : value;
         posX = Mathf.RoundToInt(posX);
+        posX *= gridManager.gridUnit;
         if (size.x % 2 == 0) {
-            posX += 0.5f;
+            posX += gridManager.gridUnit/2;
         }
-        var posY = (size.y % 2 == 0) ? currentPosition.y - 0.5f : currentPosition.y;
+            
+        value = currentPosition.y / gridManager.gridUnit;
+        var posY = (size.y % 2 == 0) ? value - gridManager.gridUnit/2 : value;
         posY = Mathf.RoundToInt(currentPosition.y);
+        posY*= gridManager.gridUnit;
         if (size.y % 2 == 0) {
-            posY += 0.5f;
+            posY += gridManager.gridUnit/2;
         }
         
-        float posZ = (size.z % 2 == 0) ? currentPosition.z - 0.5f : currentPosition.z;
+        value = currentPosition.z / gridManager.gridUnit;
+        float posZ = (size.z % 2 == 0) ? value - gridManager.gridUnit/2 : value;
         posZ = Mathf.RoundToInt(posZ);
+        posZ*= gridManager.gridUnit;
         if (size.z % 2 == 0) {
-            posZ += 0.5f;
+            posZ += gridManager.gridUnit/2;
         }
         var position = new Vector3(posX,posY,posZ);
         transform.position = position;

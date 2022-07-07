@@ -35,8 +35,6 @@ public class GameManager : MonoBehaviour {
     }
     
     private void Start() {
-        //Debugging spawner
-		GridManager.Spawn(new Vector3Int(0,0,0),pawns[0]);
     }
 
     private void Update() {
