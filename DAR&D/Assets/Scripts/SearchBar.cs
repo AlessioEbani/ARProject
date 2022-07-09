@@ -14,7 +14,7 @@ public class SearchBar : MonoBehaviour {
     private GameManager gameManager;
     private bool alphabeticalOrder;
 
-    private void Awake() {
+    private void Start() {
         gameManager = FindObjectOfType<GameManager>();
         items = new List<MonsterItem>();
         alphabeticalOrder = true;
@@ -37,9 +37,14 @@ public class SearchBar : MonoBehaviour {
         foreach (Pawn pawn in gameManager.pawns) {
             var obj = Instantiate(itemPrefab, content);
             obj.Set(pawn);
+            obj.GetComponent<Button>().onClick.AddListener(delegate { SpawnPawn(pawn); });
             items.Add(obj);
         }
         SortDataByName();
+    }
+
+    private void SpawnPawn(Pawn pawn) {
+        gameManager.GridManager.SpawnPawn(pawn);
     }
 
     private void ClearData() {

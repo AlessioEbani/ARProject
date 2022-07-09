@@ -6,8 +6,17 @@ using UnityEngine.XR.ARSubsystems;
 public class ARCursor : MonoBehaviour {
 
 	public GameObject cursorChildObject;
-	public GameObject objectToPlace;
 	public ARRaycastManager raycastManager;
+	
+	private GridManager gridManager;
+	public GridManager GridManager {
+		get {
+			if (!gridManager) {
+				gridManager = FindObjectOfType<GridManager>();
+			}
+			return gridManager;
+		}
+	}
 
 	public bool useCursor;
 	private Camera mainCamera;
@@ -21,24 +30,9 @@ public class ARCursor : MonoBehaviour {
 		if (useCursor) {
 			UpdateCursor();
 		}
-
-		GetInputs();
 	}
 
-	private void GetInputs() {
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
-			if (useCursor) {
-				Instantiate(objectToPlace, transform.position, transform.rotation);
-			}
-			else {
-				List<ARRaycastHit> hits = new List<ARRaycastHit>();
-				raycastManager.Raycast(Input.GetTouch(0).position, hits, TrackableType.Planes);
-				if (hits.Count > 0) {
-					Instantiate(objectToPlace, hits[0].pose.position, hits[0].pose.rotation);
-				}
-			}
-		}
-	}
+	
 
 	private void UpdateCursor() {
 		Vector2 screenPosition = mainCamera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));

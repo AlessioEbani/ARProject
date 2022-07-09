@@ -40,7 +40,7 @@ public class Snapper : MonoBehaviour {
             
         value = currentPosition.y / gridManager.gridUnit;
         var posY = (size.y % 2 == 0) ? value - gridManager.gridUnit/2 : value;
-        posY = Mathf.RoundToInt(currentPosition.y);
+        posY = Mathf.RoundToInt(posY);
         posY*= gridManager.gridUnit;
         if (size.y % 2 == 0) {
             posY += gridManager.gridUnit/2;

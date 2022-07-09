@@ -46,6 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridSize: {x: 10, y: 10, z: 10}
   gridUnit: 0.025
+  xSizeText: {fileID: 0}
+  zSizeText: {fileID: 0}
+  cellSizeText: {fileID: 0}
   evenObject: {fileID: 525466729909643403, guid: 841067cdc57c82b40a7757c7cd629402,
     type: 3}
   oddObject: {fileID: 1760624708019615667, guid: 1a85c73075eb67a4b9d258ddc6f7dd98,
