@@ -1,14 +1,30 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class PawnBehaviour: MonoBehaviour {
+public class PawnBehaviour : MonoBehaviour {
 	public Pawn pawn;
-	public int collision=0;
-	
+	public int collision = 0;
+
+	private GridManager gridManager;
+	public GridManager GridManager {
+		get {
+			if (!gridManager) {
+				gridManager = FindObjectOfType<GridManager>();
+			}
+			return gridManager;
+		}
+		set { gridManager = value; }
+	}
+
 	private Vector3Int size;
 
 	private void Start() {
 		collision = 0;
 		UpdateSize();
+		SnapToGrid();
+	}
+
+	private void Update() {
 		SnapToGrid();
 	}
 
@@ -19,7 +35,7 @@ public class PawnBehaviour: MonoBehaviour {
 		}
 		return false;
 	}
-	
+
 	private void UpdateSize() {
 		var localScale = transform.localScale;
 		size = new Vector3Int(Mathf.CeilToInt(localScale.x), Mathf.CeilToInt(localScale.y), Mathf.CeilToInt(localScale.z));
@@ -27,27 +43,33 @@ public class PawnBehaviour: MonoBehaviour {
 
 	private void SnapToGrid() {
 		var currentPosition = transform.position;
-		var posX = (size.x % 2 == 0) ? currentPosition.x - 0.5f : currentPosition.x;
+		var value = currentPosition.x / GridManager.gridUnit;
+		var posX = (size.x % 2 == 0) ? value - GridManager.gridUnit / 2 : value;
 		posX = Mathf.RoundToInt(posX);
+		posX *= GridManager.gridUnit;
 		if (size.x % 2 == 0) {
-			posX += 0.5f;
+			posX += GridManager.gridUnit / 2;
 		}
-		var posY = (size.y % 2 == 0) ? currentPosition.y - 0.5f : currentPosition.y;
-		posY = Mathf.RoundToInt(currentPosition.y);
+
+		value = currentPosition.y / GridManager.gridUnit;
+		var posY = (size.y % 2 == 0) ? value - GridManager.gridUnit / 2 : value;
+		posY = Mathf.RoundToInt(posY);
+		posY *= GridManager.gridUnit;
 		if (size.y % 2 == 0) {
-			posY += 0.5f;
+			posY += GridManager.gridUnit / 2;
 		}
-        
-		float posZ = (size.z % 2 == 0) ? currentPosition.z - 0.5f : currentPosition.z;
+
+		value = currentPosition.z / GridManager.gridUnit;
+		float posZ = (size.z % 2 == 0) ? value - GridManager.gridUnit / 2 : value;
 		posZ = Mathf.RoundToInt(posZ);
+		posZ *= GridManager.gridUnit;
 		if (size.z % 2 == 0) {
-			posZ += 0.5f;
+			posZ += GridManager.gridUnit / 2;
 		}
-		var position = new Vector3(posX,posY,posZ);
+		var position = new Vector3(posX, posY, posZ);
 		transform.position = position;
 	}
-	
-	
+
 	private void OnTriggerEnter(Collider other) {
 		if (other.CompareTag("Pawn")) {
 			collision++;

@@ -104,22 +104,30 @@ public class GridManager : MonoBehaviour {
 	}
 
 	public void SpawnPawn( Pawn pawn,Vector3 position) {
-		var obj = Instantiate(pawn.model, position, Quaternion.identity, transform).GetComponent<PawnBehaviour>();
-		if (obj.IsColliding()) {
+		var obj = Instantiate(pawn.model, transform.position, Quaternion.identity);
+		var pawnBehaviour = obj.GetComponent<PawnBehaviour>();
+		pawnBehaviour.GridManager = this;
+		pawnBehaviour.gameObject.transform.localScale *= gridUnit;
+		pawnBehaviour.transform.parent = transform;
+		if (pawnBehaviour.IsColliding()) {
 			Debug.Log("Invalid position");
 		}
 		else {
-			pawnInstances.Add(obj);
+			pawnInstances.Add(pawnBehaviour);
 		}
 	}
 
 	public void SpawnPawn(Pawn pawn) {
-		var obj = Instantiate(pawn.model, transform.position, Quaternion.identity, transform).GetComponent<PawnBehaviour>();
-		if (obj.IsColliding()) {
+		var obj = Instantiate(pawn.model, transform.position, Quaternion.identity);
+		var pawnBehaviour = obj.GetComponent<PawnBehaviour>();
+		pawnBehaviour.GridManager = this;
+		pawnBehaviour.gameObject.transform.localScale *= gridUnit;
+		pawnBehaviour.transform.parent = transform;
+		if (pawnBehaviour.IsColliding()) {
 			Debug.Log("Invalid position");
 		}
 		else {
-			pawnInstances.Add(obj);
+			pawnInstances.Add(pawnBehaviour);
 		}
 	}
 }

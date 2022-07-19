@@ -44,7 +44,9 @@ public class SearchBar : MonoBehaviour {
     }
 
     private void SpawnPawn(Pawn pawn) {
-        gameManager.GridManager.SpawnPawn(pawn);
+        if (gameManager.CurrentPhase == Phase.PawnPositioning) {
+            gameManager.GridManager.SpawnPawn(pawn);
+        }
     }
 
     private void ClearData() {

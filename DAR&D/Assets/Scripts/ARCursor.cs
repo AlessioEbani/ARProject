@@ -7,16 +7,6 @@ public class ARCursor : MonoBehaviour {
 
 	public GameObject cursorChildObject;
 	public ARRaycastManager raycastManager;
-	
-	private GridManager gridManager;
-	public GridManager GridManager {
-		get {
-			if (!gridManager) {
-				gridManager = FindObjectOfType<GridManager>();
-			}
-			return gridManager;
-		}
-	}
 
 	public bool useCursor;
 	private Camera mainCamera;
@@ -31,9 +21,7 @@ public class ARCursor : MonoBehaviour {
 			UpdateCursor();
 		}
 	}
-
 	
-
 	private void UpdateCursor() {
 		Vector2 screenPosition = mainCamera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
 		List<ARRaycastHit> hits = new List<ARRaycastHit>();
