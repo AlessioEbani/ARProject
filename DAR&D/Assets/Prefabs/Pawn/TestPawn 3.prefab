@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1649547054411582165}
   - component: {fileID: 2243084484236798290}
   - component: {fileID: -4124376365443484381}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TestPawn 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59,6 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawn: {fileID: 11400000, guid: 5cc9460352feef249be8abebd056ca86, type: 2}
+  collision: 0
 --- !u!1 &1649547054673411987
 GameObject:
   m_ObjectHideFlags: 0
@@ -71,7 +72,7 @@ GameObject:
   - component: {fileID: 1649547054673411999}
   - component: {fileID: 1649547054673411984}
   - component: {fileID: 1649547054673411985}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
