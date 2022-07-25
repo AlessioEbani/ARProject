@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2217346044
+CRC: 1920330358
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8f542e99232848eb4c20352e01197823
+    Hash: 29ca781689600affa122d7f0d62f5f6d
   TypeTreeHash:
     serializedVersion: 2
-    Hash: fc5a3dee291fdfd39be6ec18f91ab3bf
+    Hash: 657489b8455a2eb416e1fea8d5bb39cf
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,24 +17,42 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 23
   Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
 - Class: 33
   Script: {instanceID: 0}
 - Class: 43
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 64
+  Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 337b4bf5c4a8cd540926ccea4f555826, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 9671fa2e011048a8ae2a46ece99ddc0f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 90e5f64555104f2c9305e378babfd575, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 213
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/Data/Chess/white_king.asset
+- Assets/Data/Chess/white_rook.asset
+- Assets/Data/Chess/white_bishop.asset
+- Assets/Data/Chess/black_bishop.asset
+- Assets/Data/Chess/black_pawn.asset
+- Assets/Data/Chess/white_queen.asset
 - Assets/Prefabs/Pawn/TestPawn 2.prefab
+- Assets/Data/Chess/black_rook.asset
+- Assets/Data/Chess/white_pawn.asset
 - Assets/Prefabs/Pawn/TestPawn 3.prefab
+- Assets/Data/Chess/black_king.asset
+- Assets/Data/Chess/black_queen.asset
+- Assets/Data/Chess/black_knight.asset
+- Assets/Data/Chess/white_knight.asset
 - Assets/Data/test_pawn_1.asset
 - Assets/Data/test_pawn_2.asset
 - Assets/Prefabs/Pawn/TestPawn.prefab

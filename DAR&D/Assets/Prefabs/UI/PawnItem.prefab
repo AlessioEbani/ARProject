@@ -147,7 +147,7 @@ GameObject:
   - component: {fileID: 6748797295132074384}
   - component: {fileID: 2104582372758943367}
   m_Layer: 5
-  m_Name: MonsterItem
+  m_Name: PawnItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

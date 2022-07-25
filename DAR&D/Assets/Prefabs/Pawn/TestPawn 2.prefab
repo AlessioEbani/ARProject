@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1649547054411582165}
-  - component: {fileID: 2243084484236798290}
   - component: {fileID: 1167865479618868265}
   m_Layer: 6
   m_Name: TestPawn 2
@@ -34,18 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2243084484236798290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1649547054411582166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 337b4bf5c4a8cd540926ccea4f555826, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1167865479618868265
 MonoBehaviour:
   m_ObjectHideFlags: 0
