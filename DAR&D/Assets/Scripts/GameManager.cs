@@ -136,7 +136,7 @@ public class GameManager : MonoBehaviour {
 		RaycastHit hit;
 		var Ray = mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
 		if (Physics.Raycast(Ray, out hit,100000,groundLayerMask)) {
-			objectDragged.transform.position = hit.point;
+			objectDragged.transform.position = new Vector3(hit.point.x,objectDragged.transform.position.y,hit.point.z);
 		}
 		
 		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) {

@@ -20,6 +20,9 @@ public class MonsterItem : MonoBehaviour {
     }
 
     private float GetCR(string cr) {
+        if (cr.IsNullOrEmpty()) {
+            return 0;
+        }
         if (cr.Contains("/")) {
             var splitted = cr.Split("/");
             float a = float.Parse(splitted[0]);

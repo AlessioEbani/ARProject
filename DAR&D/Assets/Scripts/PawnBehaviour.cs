@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PawnBehaviour : MonoBehaviour {
 	public Pawn pawn;
-	public int collision = 0;
+	private int collision = 0;
 
 	private GridManager gridManager;
 	public GridManager GridManager {
