@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using Rewired.Dev;
 using UnityEngine;
 using UnityEngine.U2D;
 using Object = UnityEngine.Object;
@@ -179,21 +178,6 @@ public static class Utility {
 		if (!path.IsNullOrEmpty())
 			AssetDatabase.RenameAsset(AssetDatabase.GetAssetPath(asset), newName);
 		asset.Dirt();
-	}
-    public static string[] GetRewiredCategoryActions(string category) {
-		FieldInfo[] temp = typeof(RewiredConsts.Action).GetAllFieldsWithAttribute(typeof(ActionIdFieldInfoAttribute)).ToArray();
-		var infos = new List<FieldInfo>();
-		foreach (FieldInfo prop in temp) {
-			object[] attrs = prop.GetCustomAttributes(true);
-			foreach (object attr in attrs) {
-				if (attr is ActionIdFieldInfoAttribute actionAttr) {
-					if (actionAttr.categoryName == category) {
-						infos.Add(prop);
-					}
-				}
-			}
-		}
-		return infos.ToArray().Select(f => f.Name).ToArray();
 	}
 
 #endif
