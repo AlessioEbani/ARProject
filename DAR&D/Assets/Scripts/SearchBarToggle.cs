@@ -1,18 +1,28 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class SearchBarToggle : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+[System.Serializable]
+public struct UIPanel {
+	public Button button;
+	public GameObject panel;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public class SearchBarToggle : MonoBehaviour {
+	[SerializeField] private List<UIPanel> uiPanels;
+
+	private void Awake() {
+		for (int i = 0; i < uiPanels.Count; i++) {
+			int index = i;
+			uiPanels[i].button.onClick.AddListener(delegate { ActivatePanel(index); });
+		}
+		ActivatePanel(0);
+	}
+
+	private void ActivatePanel(int index) {
+		for (int i = 0; i < uiPanels.Count; i++) {
+			uiPanels[i].panel.SetActive(i == index);
+		}
+	}
+
 }
