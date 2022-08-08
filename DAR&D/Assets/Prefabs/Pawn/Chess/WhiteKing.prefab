@@ -59,6 +59,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90e5f64555104f2c9305e378babfd575, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useGridScale: 0
+  groundPivot: 1
   pawn: {fileID: 11400000, guid: 1ca02f64e7019e5478297ccf4902ad91, type: 2}
 --- !u!1001 &1360371089525053939
 PrefabInstance:

@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour {
 	public const string bundleName = "pawndatabundle";
 
 	public List<Pawn> pawns;
+	public List<GridPreset> gridPresets;
 
 	private GridManager gridManager;
 	public GridManager GridManager {
@@ -103,17 +104,17 @@ public class GameManager : MonoBehaviour {
 
 	private void GridPositionInputs() {
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			GridManager.SpawnGrid(ARCursor.transform.position);
+			GridManager.SpawnCustomGrid(ARCursor.transform.position);
 		}
 		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
 			if (ARCursor.useCursor) {
-				GridManager.SpawnGrid(ARCursor.transform.position);
+				GridManager.SpawnCustomGrid(ARCursor.transform.position);
 			}
 			else {
 				List<ARRaycastHit> hits = new List<ARRaycastHit>();
 				raycastManager.Raycast(Input.GetTouch(0).position, hits, TrackableType.Planes);
 				if (hits.Count > 0) {
-					GridManager.SpawnGrid(hits[0].pose.position);
+					GridManager.SpawnCustomGrid(hits[0].pose.position);
 				}
 			}
 		}

@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class GridManager : MonoBehaviour {
 	public Vector3Int gridSize;
@@ -14,14 +12,16 @@ public class GridManager : MonoBehaviour {
 	public TMP_InputField cellSizeText;
 	public GameObject evenObject;
 	public GameObject oddObject;
-
+	public GameObject customGridPrefab;
+	
 	private Vector3 gridPosition;
-
-	private List<PawnBehaviour> pawnInstances = new();
-	private List<GameObject> tiles = new();
+	private Quaternion gridRotation;
+	
+	public List<Grid> spawnedGrids;
 
 	public event Action GridDestroyed;
 	public event Action GridSpawned;
+	public event Action GridSizeUpdated;
 
 	private void Start() {
 		xSizeText.text = gridSize.x.ToString();
@@ -36,7 +36,6 @@ public class GridManager : MonoBehaviour {
 		var newX = int.Parse(text);
 		if (newX != gridSize.x) {
 			gridSize.x = newX;
-			DestroyTiles();
 		}
 	}
 
@@ -44,7 +43,6 @@ public class GridManager : MonoBehaviour {
 		var newZ = int.Parse(text);
 		if (newZ != gridSize.z) {
 			gridSize.z = newZ;
-			DestroyTiles();
 		}
 	}
 
@@ -52,27 +50,33 @@ public class GridManager : MonoBehaviour {
 		var newSize = float.Parse(text);
 		if (newSize != gridUnit) {
 			gridUnit = newSize;
-			DestroyTiles();
 		}
+		GridSizeUpdated?.Invoke();
 	}
 	
-	public void SpawnGrid(Vector3Int size, float cellSize, Vector3 worldPos) {
+	public void SpawnCustomGrid(Vector3Int size, float cellSize, Vector3 worldPos) {
 		gridSize = size;
 		gridUnit = cellSize;
 		gridPosition = worldPos;
-		InitGrid();
+		InitCustomGrid();
 	}
 
-	public void SpawnGrid(Vector3 position) {
+	public void SpawnCustomGrid(Vector3 position) {
 		gridPosition = position;
-		InitGrid();
+		InitCustomGrid();
+	}
+	
+	public void SpawnGrid(Vector3 position,GridPreset gridPreset) {
+		gridPosition = position;
+		var newGrid = Instantiate(gridPreset.model).GetComponent<Grid>();
+		spawnedGrids.Add(newGrid);
+		GridSpawned?.Invoke();
 	}
 
-	private void InitGrid() {
-		if (tiles.Count > 0) {
-			DestroyTiles();
-		}
-		transform.position = gridPosition;
+	private void InitCustomGrid() {
+		var newGrid = Instantiate(customGridPrefab).GetComponent<Grid>();
+		newGrid.transform.position = gridPosition;
+		newGrid.transform.rotation = gridRotation;
 		for (int i = -gridSize.x / 2; i < gridSize.x / 2; i++) {
 			for (int j = 0; j < 1; j++) {
 				for (int k = -gridSize.z / 2; k < gridSize.z / 2; k++) {
@@ -80,26 +84,22 @@ public class GridManager : MonoBehaviour {
 					newPosition *= gridUnit;
 					GameObject obj;
 					if ((i + k) % 2 == 0) {
-						obj = Instantiate(evenObject, transform);
+						obj = Instantiate(evenObject, newGrid.transform);
 					}
 					else {
-						obj = Instantiate(oddObject, transform);
+						obj = Instantiate(oddObject, newGrid.transform);
 					}
 					obj.transform.localPosition = newPosition;
 
 					obj.transform.localScale *= gridUnit;
-					tiles.Add(obj);
 				}
 			}
 		}
+		spawnedGrids.Add(newGrid);
 		GridSpawned?.Invoke();
 	}
 
-	private void DestroyTiles() {
-		foreach (GameObject tile in tiles) {
-			Destroy(tile);
-		}
-		tiles.Clear();
+	private void DestroyGrid() {
 		GridDestroyed?.Invoke();
 	}
 
@@ -113,7 +113,8 @@ public class GridManager : MonoBehaviour {
 			Debug.Log("Invalid position");
 		}
 		else {
-			pawnInstances.Add(pawnBehaviour);
+			//Aggiungere controllo  su quale grid aggiungere  pawn con raycast
+			//pawnInstances.Add(pawnBehaviour);
 		}
 	}
 
@@ -127,7 +128,10 @@ public class GridManager : MonoBehaviour {
 			Debug.Log("Invalid position");
 		}
 		else {
-			pawnInstances.Add(pawnBehaviour);
+			//Aggiungere controllo  su quale grid aggiungere  pawn con raycast
+			//pawnInstances.Add(pawnBehaviour);
 		}
 	}
+
+	
 }

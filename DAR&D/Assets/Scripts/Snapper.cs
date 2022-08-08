@@ -5,55 +5,73 @@ using UnityEngine;
 public class Snapper : MonoBehaviour {
     private Vector3Int size;
     private GridManager gridManager;
-    
+    public GridManager GridManager {
+        get {
+            if (!gridManager) {
+                gridManager = FindObjectOfType<GridManager>();
+            }
+            return gridManager;
+        }
+        set { gridManager = value; }
+    }
+    public bool useGridScale=false;
+    public bool groundPivot;
+    private float gridSize = 1;
+
     private void OnDrawGizmos() {
         if (!Application.isPlaying) {
             UpdateSize();
         }
     }
 
-    void Start() {
+    protected virtual void Start() {
         UpdateSize();
         gridManager = FindObjectOfType<GridManager>();
+        gridManager.GridSizeUpdated += UpdateSize;
+        gridSize = useGridScale ? gridManager.gridUnit : 1;
     }
 
-    void Update() {
-        if (gridManager) {
-            SnapToGrid();
-        }
+    protected virtual void Update() {
+        SnapToGrid();
     }
 
-    private void UpdateSize() {
+    protected void UpdateSize() {
         var localScale = transform.localScale;
         size = new Vector3Int(Mathf.CeilToInt(localScale.x), Mathf.CeilToInt(localScale.y), Mathf.CeilToInt(localScale.z));
+        
     }
 
-    private void SnapToGrid() {
-        var currentPosition = transform.position;
-        var value = currentPosition.x / gridManager.gridUnit;
-        var posX = (size.x % 2 == 0) ? value - gridManager.gridUnit/2 : value;
+    protected void SnapToGrid() {
+        var currentPosition = transform.localPosition;
+        var value = currentPosition.x / gridSize;
+        var posX = (size.x % 2 == 0) ? value - gridSize/2 : value;
         posX = Mathf.RoundToInt(posX);
-        posX *= gridManager.gridUnit;
+        posX *= gridSize;
         if (size.x % 2 == 0) {
-            posX += gridManager.gridUnit/2;
+            posX += gridSize/2;
         }
             
-        value = currentPosition.y / gridManager.gridUnit;
-        var posY = (size.y % 2 == 0) ? value - gridManager.gridUnit/2 : value;
+        value = currentPosition.y / gridSize;
+        float posY;
+        if (groundPivot || size.y % 2 != 0) {
+            posY = value;
+        }else {
+            posY = value - gridSize / 2;
+        }
         posY = Mathf.RoundToInt(posY);
-        posY*= gridManager.gridUnit;
-        if (size.y % 2 == 0) {
-            posY += gridManager.gridUnit/2;
+        posY*= gridSize;
+        if (!groundPivot && size.y % 2 == 0) {
+            posY += gridSize/2;
         }
         
-        value = currentPosition.z / gridManager.gridUnit;
-        float posZ = (size.z % 2 == 0) ? value - gridManager.gridUnit/2 : value;
+        value = currentPosition.z / gridSize;
+        float posZ = (size.z % 2 == 0) ? value - gridSize/2 : value;
         posZ = Mathf.RoundToInt(posZ);
-        posZ*= gridManager.gridUnit;
+        posZ*= gridSize;
         if (size.z % 2 == 0) {
-            posZ += gridManager.gridUnit/2;
+            posZ += gridSize/2;
         }
         var position = new Vector3(posX,posY,posZ);
-        transform.position = position;
+        transform.localPosition = position;
     }
 }

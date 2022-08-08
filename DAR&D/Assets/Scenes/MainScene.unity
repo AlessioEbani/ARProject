@@ -1329,7 +1329,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Grids
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1356,8 +1356,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2882,7 +2882,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Button
+  m_text: Pawns
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2909,8 +2909,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3855,6 +3855,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pawns: []
+  gridPresets: []
   arCursor: {fileID: 348371570}
   pawnLayerMask:
     serializedVersion: 2
@@ -4186,6 +4187,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1737463249}
+  - component: {fileID: 1737463250}
   m_Layer: 5
   m_Name: GridUI
   m_TagString: Untagged
@@ -4214,6 +4216,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -50}
   m_SizeDelta: {x: 0, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1737463250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737463248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85e4604afaf710d4ca9ba3640b5b93dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 4612925865853518440, guid: 9403c531c689e044cb0d666220272b1b,
+    type: 3}
+  content: {fileID: 773122239}
+  alphabeticalButton: {fileID: 1727067583}
+  inputField: {fileID: 1572254295}
 --- !u!1 &1851244679
 GameObject:
   m_ObjectHideFlags: 0
@@ -5041,7 +5060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: {x: 10, y: 10, z: 10}
-  gridUnit: 0.025
+  gridUnit: 1
   xSizeText: {fileID: 401339179}
   zSizeText: {fileID: 1719178437}
   cellSizeText: {fileID: 1913700450}
@@ -5049,6 +5068,8 @@ MonoBehaviour:
     type: 3}
   oddObject: {fileID: 1760624708019615667, guid: 1a85c73075eb67a4b9d258ddc6f7dd98,
     type: 3}
+  customGridPrefab: {fileID: 0}
+  spawnedGrids: []
 --- !u!1 &4533687433471515171
 GameObject:
   m_ObjectHideFlags: 0
