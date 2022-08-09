@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1920330358
+CRC: 2059752474
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 29ca781689600affa122d7f0d62f5f6d
+    Hash: b46a3a5227bd9c853073d92e5d7f46a8
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 657489b8455a2eb416e1fea8d5bb39cf
+    Hash: 0227067f9d22fcd77be81811d3a42f60
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -39,22 +39,22 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Data/Chess/white_king.asset
-- Assets/Data/Chess/white_rook.asset
-- Assets/Data/Chess/white_bishop.asset
-- Assets/Data/Chess/black_bishop.asset
-- Assets/Data/Chess/black_pawn.asset
-- Assets/Data/Chess/white_queen.asset
+- Assets/Data/Pawns/Chess/white_king.asset
+- Assets/Data/Pawns/Chess/white_rook.asset
+- Assets/Data/Pawns/Chess/white_bishop.asset
+- Assets/Data/Pawns/Chess/black_bishop.asset
+- Assets/Data/Pawns/Chess/black_pawn.asset
+- Assets/Data/Pawns/Chess/white_queen.asset
 - Assets/Prefabs/Pawn/TestPawn 2.prefab
-- Assets/Data/Chess/black_rook.asset
-- Assets/Data/Chess/white_pawn.asset
+- Assets/Data/Pawns/Chess/black_rook.asset
+- Assets/Data/Pawns/Chess/white_pawn.asset
 - Assets/Prefabs/Pawn/TestPawn 3.prefab
-- Assets/Data/Chess/black_king.asset
-- Assets/Data/Chess/black_queen.asset
-- Assets/Data/Chess/black_knight.asset
-- Assets/Data/Chess/white_knight.asset
-- Assets/Data/test_pawn_1.asset
-- Assets/Data/test_pawn_2.asset
+- Assets/Data/Pawns/Chess/black_king.asset
+- Assets/Data/Pawns/Chess/black_queen.asset
+- Assets/Data/Pawns/Chess/black_knight.asset
+- Assets/Data/Pawns/Chess/white_knight.asset
+- Assets/Data/Pawns/test_pawn_1.asset
+- Assets/Data/Pawns/test_pawn_2.asset
 - Assets/Prefabs/Pawn/TestPawn.prefab
-- Assets/Data/test_pawn_3.asset
+- Assets/Data/Pawns/test_pawn_3.asset
 Dependencies: []

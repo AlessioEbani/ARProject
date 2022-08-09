@@ -5060,7 +5060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gridSize: {x: 10, y: 10, z: 10}
-  gridUnit: 1
+  gridUnit: 0.025
   xSizeText: {fileID: 401339179}
   zSizeText: {fileID: 1719178437}
   cellSizeText: {fileID: 1913700450}
@@ -5068,7 +5068,8 @@ MonoBehaviour:
     type: 3}
   oddObject: {fileID: 1760624708019615667, guid: 1a85c73075eb67a4b9d258ddc6f7dd98,
     type: 3}
-  customGridPrefab: {fileID: 0}
+  customGridPrefab: {fileID: 3728601004625755152, guid: 836d8f2f594e3ac4cbc549a05ddb6859,
+    type: 3}
   spawnedGrids: []
 --- !u!1 &4533687433471515171
 GameObject:

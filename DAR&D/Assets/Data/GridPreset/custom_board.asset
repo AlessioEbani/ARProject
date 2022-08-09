@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Custom Board
   description: Choose your own size and pawns
-  model: {fileID: 0}
+  model: {fileID: 3728601004625755152, guid: 836d8f2f594e3ac4cbc549a05ddb6859, type: 3}
   sprite: {fileID: 0}

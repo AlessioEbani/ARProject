@@ -1,7 +1,11 @@
 ManifestFileVersion: 0
-CRC: 2619223803
+CRC: 2688253567
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: pawndatabundle
       Dependencies: {}
+    Info_1:
+      Name: griddatabundle
+      Dependencies:
+        Dependency_0: pawndatabundle

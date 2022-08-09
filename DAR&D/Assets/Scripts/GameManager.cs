@@ -6,15 +6,10 @@ using UnityEngine;
 using UnityEngine.XR.ARFoundation;
 using UnityEngine.XR.ARSubsystems;
 
-public enum Phase {
-	GridPositioning,
-	PawnPositioning,
-	Dragging
-}
-
 public class GameManager : MonoBehaviour {
 
-	public const string bundleName = "pawndatabundle";
+	public const string pawnBundleName = "pawndatabundle";
+	public const string gridBundleName = "griddatabundle";
 
 	public List<Pawn> pawns;
 	public List<GridPreset> gridPresets;
@@ -26,15 +21,6 @@ public class GameManager : MonoBehaviour {
 				gridManager = FindObjectOfType<GridManager>();
 			}
 			return gridManager;
-		}
-	}
-
-	private Phase currentPhase;
-	public Phase CurrentPhase {
-		get { return currentPhase; }
-		set {
-			currentPhase = value;
-			phaseText.text = Enum.GetName(typeof(Phase), currentPhase);
 		}
 	}
 
@@ -56,12 +42,19 @@ public class GameManager : MonoBehaviour {
 
 	private void Awake() {
 		mainCamera = Camera.main;
-		var localAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, bundleName));
+		var localAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, pawnBundleName));
 		if (localAssetBundle == null) {
 			Debug.LogError("Failed");
 			return;
 		}
 		pawns = new List<Pawn>(localAssetBundle.LoadAllAssets<Pawn>());
+		localAssetBundle = AssetBundle.LoadFromFile(Path.Combine(Application.streamingAssetsPath, gridBundleName));
+		if (localAssetBundle == null) {
+			Debug.LogError("Failed");
+			return;
+		}
+		gridPresets = new List<GridPreset>(localAssetBundle.LoadAllAssets<GridPreset>());
+		
 		OnGridPositioning();
 	}
 
@@ -71,17 +64,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void Update() {
-		switch (CurrentPhase) {
-			case Phase.GridPositioning:
-				GridPositionInputs();
-				break;
-			case Phase.PawnPositioning:
-				PawnMoveInputs();
-				break;
-			case Phase.Dragging:
-				DragInputs();
-				break;
-		}
+		PawnMoveInputs();
+		DragInputs();
 	}
 
 	private void OnGridSpawned() {
@@ -93,28 +77,26 @@ public class GameManager : MonoBehaviour {
 	}
 
 	private void OnGridPositioning() {
-		CurrentPhase = Phase.GridPositioning;
 		///arDefaultPlane.gameObject.SetActive(true);
 	}
 
 	private void OnPawnPositioning() {
-		CurrentPhase = Phase.PawnPositioning;
 		///arDefaultPlane.gameObject.SetActive(false);
 	}
 
 	private void GridPositionInputs() {
 		if (Input.GetKeyDown(KeyCode.Space)) {
-			GridManager.SpawnCustomGrid(ARCursor.transform.position);
+			//GridManager.SpawnCustomGrid(ARCursor.transform.position);
 		}
 		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
 			if (ARCursor.useCursor) {
-				GridManager.SpawnCustomGrid(ARCursor.transform.position);
+				//GridManager.SpawnCustomGrid(ARCursor.transform.position);
 			}
 			else {
 				List<ARRaycastHit> hits = new List<ARRaycastHit>();
 				raycastManager.Raycast(Input.GetTouch(0).position, hits, TrackableType.Planes);
 				if (hits.Count > 0) {
-					GridManager.SpawnCustomGrid(hits[0].pose.position);
+					//GridManager.SpawnCustomGrid(hits[0].pose.position);
 				}
 			}
 		}
@@ -128,25 +110,25 @@ public class GameManager : MonoBehaviour {
 				dragging = true;
 				objectDragged = hit.collider.transform.parent.gameObject.GetComponent<PawnBehaviour>();
 				startingPosition = objectDragged.transform.position;
-				CurrentPhase = Phase.Dragging;
 			}
 		}
 	}
 
 	private void DragInputs() {
-		RaycastHit hit;
-		var Ray = mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
-		if (Physics.Raycast(Ray, out hit,100000,groundLayerMask)) {
-			objectDragged.transform.position = new Vector3(hit.point.x,objectDragged.transform.position.y,hit.point.z);
-		}
-		
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Ended) {
-			dragging = false;
-			if (objectDragged.IsColliding()) {
-				objectDragged.transform.position = startingPosition;
+		if (Input.touchCount > 0) {
+			RaycastHit hit;
+			var Ray = mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
+			if (Physics.Raycast(Ray, out hit,100000,groundLayerMask)) {
+				objectDragged.transform.position = new Vector3(hit.point.x,objectDragged.transform.position.y,hit.point.z);
 			}
-			objectDragged = null;
-			CurrentPhase = Phase.PawnPositioning;
+		
+			if (Input.GetTouch(0).phase == TouchPhase.Ended) {
+				dragging = false;
+				if (objectDragged.IsColliding()) {
+					objectDragged.transform.position = startingPosition;
+				}
+				objectDragged = null;
+			}
 		}
 	}
 }

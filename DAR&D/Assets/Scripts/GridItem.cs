@@ -13,6 +13,7 @@ public class GridItem : MonoBehaviour {
 		name.text = gridPreset.name;
 		image.sprite = gridPreset.sprite;
 		description.text = gridPreset.description;
+		this.gridPreset = gridPreset;
 	}
     
 }

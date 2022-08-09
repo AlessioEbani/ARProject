@@ -50,9 +50,7 @@ public class GridSearchBar : MonoBehaviour
 	}
 
 	private void SpawnGrid(GridPreset gridPreset) {
-		if (gameManager.CurrentPhase == Phase.GridPositioning) {
-			//gameManager.GridManager.SpawnGrid(gridPreset);
-		}
+		gameManager.GridManager.SpawnGrid(gridPreset);
 	}
 
 
