@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour {
 
 	public const string pawnBundleName = "pawndatabundle";
 	public const string gridBundleName = "griddatabundle";
-
+	public static readonly LayerMask pawnLayerMask = (1<<6);
+	public static readonly LayerMask groundLayerMask = (1<<7);
+	
 	public List<Pawn> pawns;
 	public List<GridPreset> gridPresets;
 
@@ -35,8 +37,7 @@ public class GameManager : MonoBehaviour {
 	private PawnBehaviour objectDragged;
 	private Vector3 startingPosition;
 
-	public LayerMask pawnLayerMask;
-	public LayerMask groundLayerMask;
+	
 	public ARRaycastManager raycastManager;
 	public TextMeshProUGUI phaseText;
 
@@ -65,7 +66,9 @@ public class GameManager : MonoBehaviour {
 
 	private void Update() {
 		PawnMoveInputs();
-		DragInputs();
+		if (dragging) {
+			DragInputs();
+		}
 	}
 
 	private void OnGridSpawned() {
@@ -112,6 +115,15 @@ public class GameManager : MonoBehaviour {
 				startingPosition = objectDragged.transform.position;
 			}
 		}
+		if (Input.GetMouseButtonDown(0)) {
+			RaycastHit hit;
+			var Ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(Ray, out hit,100000,pawnLayerMask)) {
+				dragging = true;
+				objectDragged = hit.collider.GetComponentInParent<PawnBehaviour>();
+				startingPosition = objectDragged.transform.position;
+			}
+		}
 	}
 
 	private void DragInputs() {
@@ -129,6 +141,22 @@ public class GameManager : MonoBehaviour {
 				}
 				objectDragged = null;
 			}
+		}
+
+		if (Input.GetMouseButton(0)) {
+			RaycastHit hit;
+			var Ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+			if (Physics.Raycast(Ray, out hit,100000,groundLayerMask)) {
+				objectDragged.transform.position = new Vector3(hit.point.x,objectDragged.transform.position.y,hit.point.z);
+			}
+		}
+
+		if (Input.GetMouseButtonUp(0)) {
+			dragging = false;
+			if (objectDragged.IsColliding()) {
+				objectDragged.transform.position = startingPosition;
+			}
+			objectDragged = null;
 		}
 	}
 }

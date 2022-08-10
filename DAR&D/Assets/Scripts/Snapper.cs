@@ -26,9 +26,8 @@ public class Snapper : MonoBehaviour {
 
     protected virtual void Start() {
         UpdateSize();
-        gridManager = FindObjectOfType<GridManager>();
-        gridManager.GridSizeUpdated += UpdateSize;
-        gridSize = useGridScale ? gridManager.gridUnit : 1;
+        GridManager.GridSizeUpdated += UpdateSize;
+        gridSize = useGridScale ? GridManager.gridUnit : 1;
     }
 
     protected virtual void Update() {

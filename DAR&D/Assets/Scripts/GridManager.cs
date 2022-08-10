@@ -21,6 +21,7 @@ public class GridManager : MonoBehaviour {
 	public List<Grid> spawnedGrids;
 
 	private ARCursor arCursor;
+	private Camera mainCamera;
 
 	public event Action GridDestroyed;
 	public event Action GridSpawned;
@@ -28,6 +29,7 @@ public class GridManager : MonoBehaviour {
 
 	private void Start() {
 		arCursor = FindObjectOfType<ARCursor>();
+		mainCamera = Camera.main;
 		xSizeText.text = gridSize.x.ToString();
 		zSizeText.text = gridSize.z.ToString();
 		cellSizeText.text = gridUnit.ToString();
@@ -98,7 +100,6 @@ public class GridManager : MonoBehaviour {
 		var obj = Instantiate(pawn.model, transform.position, Quaternion.identity);
 		var pawnBehaviour = obj.GetComponent<PawnBehaviour>();
 		pawnBehaviour.GridManager = this;
-		pawnBehaviour.gameObject.transform.localScale *= gridUnit;
 		pawnBehaviour.transform.parent = transform;
 		if (pawnBehaviour.IsColliding()) {
 			Debug.Log("Invalid position");
@@ -110,18 +111,24 @@ public class GridManager : MonoBehaviour {
 	}
 
 	public void SpawnPawn(Pawn pawn) {
-		var obj = Instantiate(pawn.model, transform.position, Quaternion.identity);
-		var pawnBehaviour = obj.GetComponent<PawnBehaviour>();
-		pawnBehaviour.GridManager = this;
-		pawnBehaviour.gameObject.transform.localScale *= gridUnit;
-		pawnBehaviour.transform.parent = transform;
-		if (pawnBehaviour.IsColliding()) {
-			Debug.Log("Invalid position");
+		RaycastHit hit;
+		var screenPosition=mainCamera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+		var Ray = mainCamera.ScreenPointToRay(screenPosition);
+		if (Physics.Raycast(Ray, out hit,100000,GameManager.groundLayerMask)) {
+			var gridParent=hit.collider.GetComponentInParent<Grid>();
+			var pawnParent = gridParent.pawnParent ? gridParent.pawnParent : gridParent.transform;
+			var obj = Instantiate(pawn.model, hit.point, Quaternion.identity,pawnParent);
+			var pawnBehaviour = obj.GetComponent<PawnBehaviour>();
+			if (pawnBehaviour.IsColliding()) {
+				//find  nearest free space
+				Debug.Log("Invalid position");
+				Destroy(pawnBehaviour.gameObject);
+			}
+			else {
+				gridParent.instantiedPawns.Add(pawnBehaviour);
+			}
 		}
-		else {
-			//Aggiungere controllo  su quale grid aggiungere  pawn con raycast
-			//pawnInstances.Add(pawnBehaviour);
-		}
+		
 	}
 
 }

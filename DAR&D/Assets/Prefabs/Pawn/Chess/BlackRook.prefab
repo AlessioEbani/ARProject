@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4100236416606613687}
   - component: {fileID: 4100236416606613684}
   - component: {fileID: 7994273851129325171}
+  - component: {fileID: 8258354448788973326}
   m_Layer: 6
   m_Name: BlackRook
-  m_TagString: Untagged
+  m_TagString: Pawn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +43,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4100236416606613686}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.9, y: 1, z: 0.9}
@@ -62,6 +63,22 @@ MonoBehaviour:
   useGridScale: 0
   groundPivot: 1
   pawn: {fileID: 11400000, guid: 8911a4a7bfcdcd74285de91a10966ed1, type: 2}
+--- !u!54 &8258354448788973326
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4100236416606613686}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1001 &4100236417314506724
 PrefabInstance:
   m_ObjectHideFlags: 0
