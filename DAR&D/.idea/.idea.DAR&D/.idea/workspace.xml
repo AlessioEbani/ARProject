@@ -5,22 +5,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a91f9c04-4e28-4b30-8a8d-5f4b80a901fb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ARCursor.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/ARCursor.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DAR&amp;D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DAR&amp;D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ARCursor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/ARCursor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/GridManager.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/GridManager.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Maps/ChessBoard.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Maps/ChessBoard.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackBishop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackBishop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackKing.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackKing.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackKnight.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackKnight.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackPawn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackPawn.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackQueen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackQueen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackRook.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/BlackRook.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhiteBishop.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhiteBishop.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhiteKing.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhiteKing.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhiteKnight.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhiteKnight.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhitePawn.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhitePawn.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhiteQueen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhiteQueen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhiteRook.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Pawn/Chess/WhiteRook.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Grid.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Grid.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/GridManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GridManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/SearchBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/SearchBar.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Snapper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Snapper.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/UnityServicesProjectConfiguration.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/UnityServicesProjectConfiguration.json.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.learn.iet-framework/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/StreamingAssets" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/StreamingAssets" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/StreamingAssets.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/StreamingAssets.manifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/griddatabundle" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/griddatabundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/griddatabundle.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/griddatabundle.manifest" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/pawndatabundle" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/pawndatabundle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/StreamingAssets/pawndatabundle.manifest" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/StreamingAssets/pawndatabundle.manifest" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/default-2021.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,6 +42,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PawnSearchBar.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/SearchBarToggle.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.learn.iet-framework@2.2.1/Editor/StringExtensions.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -53,7 +70,6 @@
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;rider.run.widget.enabled.cache&quot;: &quot;false&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -84,10 +100,10 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="3760">
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="6364">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
-      <option name="pid" value="3760" />
+      <option name="pid" value="6364" />
       <option name="projectPathOnTarget" />
       <option name="selectedOptions">
         <list />
@@ -106,6 +122,10 @@
       <workItem from="1656578275343" duration="3074000" />
       <workItem from="1656663627162" duration="5741000" />
       <workItem from="1657370073931" duration="7275000" />
+      <workItem from="1658733384512" duration="7650000" />
+      <workItem from="1659944480396" duration="5840000" />
+      <workItem from="1660030350484" duration="7700000" />
+      <workItem from="1660117545281" duration="2973000" />
     </task>
     <servers />
   </component>
@@ -129,5 +149,24 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs</url>
+          <line>141</line>
+          <properties documentPath="E:\Desktop\Axel\Repositories\Unity\ARProject2\DAR&amp;D\Assets\Scripts\GameManager.cs" initialLine="140" containingFunctionPresentation="method 'DragInputs'">
+            <startOffsets>
+              <option value="3988" />
+            </startOffsets>
+            <endOffsets>
+              <option value="4009" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
