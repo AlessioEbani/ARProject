@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Chess Board
   description: A normaly preset chess board
   model: {fileID: 2148861338987741182, guid: 9cfbe2061f9e04e498b8000300a6e602, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 6492a3e4f42f61642833ca4a5899bec5, type: 3}

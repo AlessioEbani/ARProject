@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GridManager : MonoBehaviour {
 	public Vector3Int gridSize;
@@ -11,6 +12,7 @@ public class GridManager : MonoBehaviour {
 	public TMP_InputField xSizeText;
 	public TMP_InputField zSizeText;
 	public TMP_InputField cellSizeText;
+	public Button deleteButton;
 	public GameObject evenObject;
 	public GameObject oddObject;
 	public GameObject customGridPrefab;
@@ -36,6 +38,7 @@ public class GridManager : MonoBehaviour {
 		xSizeText.onEndEdit.AddListener(OnEndEditX);
 		zSizeText.onEndEdit.AddListener(OnEndEditZ);
 		cellSizeText.onEndEdit.AddListener(OnEndEditSize);
+		deleteButton.onClick.AddListener(DeleteGrid);
 	}
 
 	private void OnEndEditX(string text) {
@@ -92,21 +95,15 @@ public class GridManager : MonoBehaviour {
 		}
 	}
 
-	private void DestroyGrid() {
-		GridDestroyed?.Invoke();
-	}
-
-	public void SpawnPawn(Pawn pawn, Vector3 position) {
-		var obj = Instantiate(pawn.model, transform.position, Quaternion.identity);
-		var pawnBehaviour = obj.GetComponent<PawnBehaviour>();
-		pawnBehaviour.GridManager = this;
-		pawnBehaviour.transform.parent = transform;
-		if (pawnBehaviour.IsColliding()) {
-			Debug.Log("Invalid position");
-		}
-		else {
-			//Aggiungere controllo  su quale grid aggiungere  pawn con raycast
-			//pawnInstances.Add(pawnBehaviour);
+	private void DeleteGrid() {
+		RaycastHit hit;
+		var screenPosition=mainCamera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
+		var Ray = mainCamera.ScreenPointToRay(screenPosition);
+		if (Physics.Raycast(Ray, out hit, 100000, GameManager.groundLayerMask)) {
+			var gridParent=hit.collider.GetComponentInParent<Grid>();
+			spawnedGrids.Remove(gridParent);
+			Destroy(gridParent.gameObject);
+			GridDestroyed?.Invoke();
 		}
 	}
 

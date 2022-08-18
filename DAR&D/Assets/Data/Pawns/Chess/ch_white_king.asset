@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9671fa2e011048a8ae2a46ece99ddc0f, type: 3}
+  m_Name: ch_white_king
+  m_EditorClassIdentifier: 
+  name: White King
+  alignment: 
+  CR: 
+  type: 
+  description: Take enemy's one to win, it moves by 1 in any direction
+  model: {fileID: 1777954460390457988, guid: 338122df791a8744bb5caf95db8b6c49, type: 3}
+  sprite: {fileID: 21300000, guid: 0cfb352159e5f8c48aedda063c92ebfd, type: 3}

@@ -1,18 +1,18 @@
-using System;
 using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UIElements;
 using UnityEngine.XR.ARFoundation;
-using UnityEngine.XR.ARSubsystems;
 
 public class GameManager : MonoBehaviour {
 
-	public const string pawnBundleName = "pawndatabundle";
-	public const string gridBundleName = "griddatabundle";
-	public static readonly LayerMask pawnLayerMask = (1<<6);
-	public static readonly LayerMask groundLayerMask = (1<<7);
-	
+	private const string pawnBundleName = "pawndatabundle";
+	private const string gridBundleName = "griddatabundle";
+	private static readonly LayerMask pawnLayerMask = (1 << 6);
+
+	public static readonly LayerMask groundLayerMask = (1 << 7);
+
 	public List<Pawn> pawns;
 	public List<GridPreset> gridPresets;
 
@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour {
 	private PawnBehaviour objectDragged;
 	private Vector3 startingPosition;
 
-	
 	public ARRaycastManager raycastManager;
+	public DeleteButton deleteButton;
 	public TextMeshProUGUI phaseText;
 
 	private void Awake() {
@@ -55,13 +55,6 @@ public class GameManager : MonoBehaviour {
 			return;
 		}
 		gridPresets = new List<GridPreset>(localAssetBundle.LoadAllAssets<GridPreset>());
-		
-		OnGridPositioning();
-	}
-
-	private void Start() {
-		GridManager.GridDestroyed += OnGridDeleted;
-		GridManager.GridSpawned += OnGridSpawned;
 	}
 
 	private void Update() {
@@ -71,45 +64,11 @@ public class GameManager : MonoBehaviour {
 		}
 	}
 
-	private void OnGridSpawned() {
-		OnPawnPositioning();
-	}
-
-	private void OnGridDeleted() {
-		OnGridPositioning();
-	}
-
-	private void OnGridPositioning() {
-		///arDefaultPlane.gameObject.SetActive(true);
-	}
-
-	private void OnPawnPositioning() {
-		///arDefaultPlane.gameObject.SetActive(false);
-	}
-
-	private void GridPositionInputs() {
-		if (Input.GetKeyDown(KeyCode.Space)) {
-			//GridManager.SpawnCustomGrid(ARCursor.transform.position);
-		}
-		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
-			if (ARCursor.useCursor) {
-				//GridManager.SpawnCustomGrid(ARCursor.transform.position);
-			}
-			else {
-				List<ARRaycastHit> hits = new List<ARRaycastHit>();
-				raycastManager.Raycast(Input.GetTouch(0).position, hits, TrackableType.Planes);
-				if (hits.Count > 0) {
-					//GridManager.SpawnCustomGrid(hits[0].pose.position);
-				}
-			}
-		}
-	}
-
 	private void PawnMoveInputs() {
 		if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began) {
 			RaycastHit hit;
 			var Ray = mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
-			if (Physics.Raycast(Ray, out hit,100000,pawnLayerMask)) {
+			if (Physics.Raycast(Ray, out hit, 100000, pawnLayerMask)) {
 				dragging = true;
 				objectDragged = hit.collider.transform.parent.gameObject.GetComponent<PawnBehaviour>();
 				startingPosition = objectDragged.transform.position;
@@ -118,7 +77,7 @@ public class GameManager : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0)) {
 			RaycastHit hit;
 			var Ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-			if (Physics.Raycast(Ray, out hit,100000,pawnLayerMask)) {
+			if (Physics.Raycast(Ray, out hit, 100000, pawnLayerMask)) {
 				dragging = true;
 				objectDragged = hit.collider.GetComponentInParent<PawnBehaviour>();
 				startingPosition = objectDragged.transform.position;
@@ -130,24 +89,27 @@ public class GameManager : MonoBehaviour {
 		if (Input.touchCount > 0) {
 			RaycastHit hit;
 			var Ray = mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
-			if (Physics.Raycast(Ray, out hit,100000,groundLayerMask)) {
-				objectDragged.transform.position = new Vector3(hit.point.x,objectDragged.transform.position.y,hit.point.z);
+			if (Physics.Raycast(Ray, out hit, 100000, groundLayerMask)) {
+				objectDragged.transform.position = new Vector3(hit.point.x, objectDragged.transform.position.y, hit.point.z);
 			}
-		
-			if (Input.GetTouch(0).phase == TouchPhase.Ended) {
-				dragging = false;
-				if (objectDragged.IsColliding()) {
-					objectDragged.transform.position = startingPosition;
+
+			deleteButton.gameObject.transform.po
+			if (Input.GetTouch(0).position.)
+
+				if (Input.GetTouch(0).phase == TouchPhase.Ended) {
+					dragging = false;
+					if (objectDragged.IsColliding()) {
+						objectDragged.transform.position = startingPosition;
+					}
+					objectDragged = null;
 				}
-				objectDragged = null;
-			}
 		}
 
 		if (Input.GetMouseButton(0)) {
 			RaycastHit hit;
 			var Ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-			if (Physics.Raycast(Ray, out hit,100000,groundLayerMask)) {
-				objectDragged.transform.position = new Vector3(hit.point.x,objectDragged.transform.position.y,hit.point.z);
+			if (Physics.Raycast(Ray, out hit, 100000, groundLayerMask)) {
+				objectDragged.transform.position = new Vector3(hit.point.x, objectDragged.transform.position.y, hit.point.z);
 			}
 		}
 
@@ -158,5 +120,16 @@ public class GameManager : MonoBehaviour {
 			}
 			objectDragged = null;
 		}
+	}
+
+	private bool checkOverlap(Vector2 positionToOverlap,Vector3 scale, Vector2 currentPosition) {
+		bool overlap = true;
+		if (currentPosition.x>positionToOverlap.x+scale.x ||
+		    currentPosition.x<positionToOverlap.x-scale.x ||
+		    currentPosition.y<positionToOverlap.y-scale.y ||
+		    currentPosition.y<positionToOverlap.y+scale.y) {
+			overlap = false;
+		}
+		return overlap;
 	}
 }

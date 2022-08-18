@@ -15,4 +15,4 @@ MonoBehaviour:
   name: Custom Board
   description: Choose your own size and pawns
   model: {fileID: 3728601004625755152, guid: 836d8f2f594e3ac4cbc549a05ddb6859, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 4b86a14eb3cb5a74d8ca6e3c0f9259d5, type: 3}
