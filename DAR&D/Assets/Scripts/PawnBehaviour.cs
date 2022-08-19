@@ -2,6 +2,7 @@
 
 [ExecuteInEditMode]
 public class PawnBehaviour : Snapper {
+	[HideInInspector] public Grid parentGrid;
 	public Pawn pawn;
 	private int collision = 0;
 

@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UIElements;
 using UnityEngine.XR.ARFoundation;
 
 public class GameManager : MonoBehaviour {
@@ -10,7 +9,6 @@ public class GameManager : MonoBehaviour {
 	private const string pawnBundleName = "pawndatabundle";
 	private const string gridBundleName = "griddatabundle";
 	private static readonly LayerMask pawnLayerMask = (1 << 6);
-
 	public static readonly LayerMask groundLayerMask = (1 << 7);
 
 	public List<Pawn> pawns;
@@ -74,6 +72,7 @@ public class GameManager : MonoBehaviour {
 				startingPosition = objectDragged.transform.position;
 			}
 		}
+#if UNITY_EDITOR
 		if (Input.GetMouseButtonDown(0)) {
 			RaycastHit hit;
 			var Ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -83,19 +82,28 @@ public class GameManager : MonoBehaviour {
 				startingPosition = objectDragged.transform.position;
 			}
 		}
+#endif
 	}
 
 	private void DragInputs() {
 		if (Input.touchCount > 0) {
 			RaycastHit hit;
-			var Ray = mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
-			if (Physics.Raycast(Ray, out hit, 100000, groundLayerMask)) {
+			var ray = mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
+			if (Physics.Raycast(ray, out hit, 100000, groundLayerMask)) {
 				objectDragged.transform.position = new Vector3(hit.point.x, objectDragged.transform.position.y, hit.point.z);
 			}
 
-			deleteButton.gameObject.transform.po
-			if (Input.GetTouch(0).position.)
-
+			if (deleteButton.Touched) {
+				deleteButton.TouchedWithPawn();
+				if (Input.GetTouch(0).phase == TouchPhase.Ended) {
+					GridManager.DeletePawn(objectDragged);
+					deleteButton.Normal();
+					objectDragged = null;
+					dragging = false;
+				}
+			}
+			else {
+				deleteButton.Normal();
 				if (Input.GetTouch(0).phase == TouchPhase.Ended) {
 					dragging = false;
 					if (objectDragged.IsColliding()) {
@@ -103,8 +111,10 @@ public class GameManager : MonoBehaviour {
 					}
 					objectDragged = null;
 				}
+			}
 		}
 
+#if UNITY_EDITOR
 		if (Input.GetMouseButton(0)) {
 			RaycastHit hit;
 			var Ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -113,23 +123,25 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetMouseButtonUp(0)) {
-			dragging = false;
-			if (objectDragged.IsColliding()) {
-				objectDragged.transform.position = startingPosition;
+		if (deleteButton.Touched) {
+			deleteButton.TouchedWithPawn();
+			if (Input.GetMouseButtonUp(0)) {
+				GridManager.DeletePawn(objectDragged);
+				deleteButton.Normal();
+				objectDragged = null;
+				dragging = false;
 			}
-			objectDragged = null;
 		}
-	}
-
-	private bool checkOverlap(Vector2 positionToOverlap,Vector3 scale, Vector2 currentPosition) {
-		bool overlap = true;
-		if (currentPosition.x>positionToOverlap.x+scale.x ||
-		    currentPosition.x<positionToOverlap.x-scale.x ||
-		    currentPosition.y<positionToOverlap.y-scale.y ||
-		    currentPosition.y<positionToOverlap.y+scale.y) {
-			overlap = false;
+		else {
+			deleteButton.Normal();
+			if (Input.GetMouseButtonUp(0)) {
+				dragging = false;
+				if (objectDragged.IsColliding()) {
+					objectDragged.transform.position = startingPosition;
+				}
+				objectDragged = null;
+			}
 		}
-		return overlap;
+#endif
 	}
 }

@@ -80,7 +80,6 @@ public class GridManager : MonoBehaviour {
 			for (int j = 0; j < 1; j++) {
 				for (int k = -gridSize.z / 2; k < gridSize.z / 2; k++) {
 					Vector3 newPosition = new Vector3(i, gridPosition.y, k);
-					//newPosition *= gridUnit;
 					GameObject obj;
 					if ((i + k) % 2 == 0) {
 						obj = Instantiate(evenObject, newGrid.transform);
@@ -89,7 +88,6 @@ public class GridManager : MonoBehaviour {
 						obj = Instantiate(oddObject, newGrid.transform);
 					}
 					obj.transform.localPosition = newPosition;
-					//obj.transform.localScale *= gridUnit;
 				}
 			}
 		}
@@ -108,14 +106,14 @@ public class GridManager : MonoBehaviour {
 	}
 
 	public void SpawnPawn(Pawn pawn) {
-		RaycastHit hit;
 		var screenPosition=mainCamera.ViewportToScreenPoint(new Vector3(0.5f, 0.5f));
 		var Ray = mainCamera.ScreenPointToRay(screenPosition);
-		if (Physics.Raycast(Ray, out hit,100000,GameManager.groundLayerMask)) {
+		if (Physics.Raycast(Ray, out RaycastHit hit,100000,GameManager.groundLayerMask)) {
 			var gridParent=hit.collider.GetComponentInParent<Grid>();
 			var pawnParent = gridParent.pawnParent ? gridParent.pawnParent : gridParent.transform;
 			var obj = Instantiate(pawn.model, hit.point, Quaternion.identity,pawnParent);
 			var pawnBehaviour = obj.GetComponent<PawnBehaviour>();
+			pawnBehaviour.parentGrid = gridParent;
 			if (pawnBehaviour.IsColliding()) {
 				//find  nearest free space
 				Debug.Log("Invalid position");
@@ -128,4 +126,15 @@ public class GridManager : MonoBehaviour {
 		
 	}
 
+	public void DeletePawn(PawnBehaviour objectDragged) {
+		if (objectDragged.parentGrid == null) {
+			foreach (Grid spawnedGrid in spawnedGrids) {
+				spawnedGrid.instantiedPawns.RemoveAll(item => item == null);
+			}
+		}
+		else {
+			objectDragged.parentGrid.instantiedPawns.Remove(objectDragged);
+		}
+		Destroy(objectDragged.gameObject);
+	}
 }
