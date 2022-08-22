@@ -2,8 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR.ARFoundation;
 
 public class GridManager : MonoBehaviour {
 	public Vector3Int gridSize;
@@ -67,6 +69,7 @@ public class GridManager : MonoBehaviour {
 		gridPosition = arCursor.transform.position;
 		gridRotation = arCursor.transform.rotation;
 		var newGrid = Instantiate(gridPreset.model, gridPosition, gridRotation).GetComponent<Grid>();
+		newGrid.AddComponent<ARAnchor>();
 		newGrid.transform.localScale = new Vector3(gridUnit, gridUnit, gridUnit);
 		if (gridPreset.name.ToLower().Contains("custom")) {
 			InitCustomGrid(newGrid.transform);

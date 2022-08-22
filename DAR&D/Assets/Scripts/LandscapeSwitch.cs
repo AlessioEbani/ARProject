@@ -9,10 +9,7 @@ public class LandscapeSwitch : MonoBehaviour {
 	private void Update() {
 		if (!isPortrait) {
 			if (Input.deviceOrientation == DeviceOrientation.Portrait ||
-			    Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown ||
-			    Input.deviceOrientation == DeviceOrientation.Unknown ||
-			    Input.deviceOrientation == DeviceOrientation.FaceUp ||
-			    Input.deviceOrientation == DeviceOrientation.FaceDown) {
+			    Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown) {
 				isPortrait = true;
 				landscapeCanvas.SetActive(false);
 				portraitCanvas.SetActive(true);

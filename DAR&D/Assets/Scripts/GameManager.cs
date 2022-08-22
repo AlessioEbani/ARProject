@@ -68,11 +68,10 @@ public class GameManager : MonoBehaviour {
 			var Ray = mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
 			if (Physics.Raycast(Ray, out hit, 100000, pawnLayerMask)) {
 				dragging = true;
-				objectDragged = hit.collider.transform.parent.gameObject.GetComponent<PawnBehaviour>();
+				objectDragged = hit.collider.GetComponent<PawnBehaviour>();
 				startingPosition = objectDragged.transform.position;
 			}
 		}
-#if UNITY_EDITOR
 		if (Input.GetMouseButtonDown(0)) {
 			RaycastHit hit;
 			var Ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -82,7 +81,6 @@ public class GameManager : MonoBehaviour {
 				startingPosition = objectDragged.transform.position;
 			}
 		}
-#endif
 	}
 
 	private void DragInputs() {
@@ -114,7 +112,6 @@ public class GameManager : MonoBehaviour {
 			}
 		}
 
-#if UNITY_EDITOR
 		if (Input.GetMouseButton(0)) {
 			RaycastHit hit;
 			var Ray = mainCamera.ScreenPointToRay(Input.mousePosition);
@@ -142,6 +139,5 @@ public class GameManager : MonoBehaviour {
 				objectDragged = null;
 			}
 		}
-#endif
 	}
 }
