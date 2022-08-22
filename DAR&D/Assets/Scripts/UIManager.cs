@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class LandscapeSwitch : MonoBehaviour {
+public class UIManager : MonoBehaviour {
 	public GameObject portraitCanvas;
 	public GameObject landscapeCanvas;
 

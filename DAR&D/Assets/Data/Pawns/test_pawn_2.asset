@@ -17,6 +17,6 @@ MonoBehaviour:
   hasDetails: 1
   alignment: CM
   CR: 1/3
-  type: Umanoide
-  model: {fileID: 1649547054411582166, guid: ae7dd0f2bbff9f04c8e45117ec3a3d63, type: 3}
+  type: Human
+  model: {fileID: 483006247876627586, guid: 80f587275e49a5043b1ca2d3f343936f, type: 3}
   sprite: {fileID: 0}

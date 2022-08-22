@@ -62,6 +62,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   useGridScale: 0
   groundPivot: 1
+  parentGrid: {fileID: 0}
   pawn: {fileID: 11400000, guid: 4d57ded86b43bb64a90d6ad886a0d5c5, type: 2}
 --- !u!54 &8652105914445566144
 Rigidbody:
