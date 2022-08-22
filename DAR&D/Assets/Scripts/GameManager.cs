@@ -72,15 +72,6 @@ public class GameManager : MonoBehaviour {
 				startingPosition = objectDragged.transform.position;
 			}
 		}
-		if (Input.GetMouseButtonDown(0)) {
-			RaycastHit hit;
-			var Ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-			if (Physics.Raycast(Ray, out hit, 100000, pawnLayerMask)) {
-				dragging = true;
-				objectDragged = hit.collider.GetComponentInParent<PawnBehaviour>();
-				startingPosition = objectDragged.transform.position;
-			}
-		}
 	}
 
 	private void DragInputs() {
@@ -117,26 +108,6 @@ public class GameManager : MonoBehaviour {
 			var Ray = mainCamera.ScreenPointToRay(Input.mousePosition);
 			if (Physics.Raycast(Ray, out hit, 100000, groundLayerMask)) {
 				objectDragged.transform.position = new Vector3(hit.point.x, objectDragged.transform.position.y, hit.point.z);
-			}
-		}
-
-		if (deleteButton.Touched) {
-			deleteButton.TouchedWithPawn();
-			if (Input.GetMouseButtonUp(0)) {
-				GridManager.DeletePawn(objectDragged);
-				deleteButton.Normal();
-				objectDragged = null;
-				dragging = false;
-			}
-		}
-		else {
-			deleteButton.Normal();
-			if (Input.GetMouseButtonUp(0)) {
-				dragging = false;
-				if (objectDragged.IsColliding()) {
-					objectDragged.transform.position = startingPosition;
-				}
-				objectDragged = null;
 			}
 		}
 	}

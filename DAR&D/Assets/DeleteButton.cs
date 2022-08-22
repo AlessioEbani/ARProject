@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DeleteButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler {
+public class DeleteButton : MonoBehaviour {
 	private Animator animator;
 	private Button button;
 
@@ -30,13 +30,5 @@ public class DeleteButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHandl
 	
 	public void Normal() {
 		animator.SetTrigger("Normal");
-	}
-
-	public void OnPointerEnter(PointerEventData eventData) {
-		touched = true;
-	}
-
-	public void OnPointerExit(PointerEventData eventData) {
-		touched = false;
 	}
 }
