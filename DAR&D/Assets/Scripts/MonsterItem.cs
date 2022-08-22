@@ -15,7 +15,7 @@ public class MonsterItem : MonoBehaviour {
         this.pawn = pawn;
         name.text = pawn.name;
         image.sprite = pawn.sprite;
-        description.text = GetDescription(pawn.CR,pawn.alignment,pawn.description,pawn.type);
+        description.text = pawn.hasDetails?GetDescription(pawn.CR,pawn.alignment,pawn.description,pawn.type):pawn.description;
         cr = GetCR(pawn.CR);
     }
 

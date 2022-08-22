@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: test_pawn_1
   m_EditorClassIdentifier: 
   name: Drago Supremo
+  description: "Questo \xE8 un bellissimo drago"
+  hasDetails: 1
   alignment: CN
   CR: 16
   type: Dragon
-  description: "Questo \xE8 un bellissimo drago"
   model: {fileID: 4579859949087020658, guid: e1aa69ff91d42aa4c970ca8d23eef8f4, type: 3}
+  sprite: {fileID: 0}

@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: test_pawn_2
   m_EditorClassIdentifier: 
   name: Goblin
+  description: Un piccolo goblin deforme
+  hasDetails: 1
   alignment: CM
   CR: 1/3
   type: Umanoide
-  description: Un piccolo goblin deforme
   model: {fileID: 1649547054411582166, guid: ae7dd0f2bbff9f04c8e45117ec3a3d63, type: 3}
+  sprite: {fileID: 0}

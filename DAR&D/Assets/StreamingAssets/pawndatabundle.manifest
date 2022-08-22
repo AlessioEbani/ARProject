@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1081257194
+CRC: 2085769181
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c43adc588bf597cf0cc3c81de5d51598
+    Hash: 828ee3a1c2cb86ab2d3ddf9b25df8356
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 667a8ebf80eb76d1702be3072aca160a
+    Hash: e89c343199d4b0300bceaa26a36a7db4
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -31,32 +31,37 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
+- Class: 90
+  Script: {instanceID: 0}
+- Class: 95
+  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 9671fa2e011048a8ae2a46ece99ddc0f, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 90e5f64555104f2c9305e378babfd575, type: 3}
 - Class: 115
   Script: {instanceID: 0}
+- Class: 137
+  Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Data/Pawns/Chess/white_king.asset
-- Assets/Data/Pawns/Chess/white_rook.asset
-- Assets/Data/Pawns/Chess/white_bishop.asset
-- Assets/Data/Pawns/Chess/black_bishop.asset
-- Assets/Data/Pawns/Chess/black_pawn.asset
-- Assets/Data/Pawns/Chess/white_queen.asset
-- Assets/Prefabs/Pawn/TestPawn 2.prefab
-- Assets/Data/Pawns/Chess/black_rook.asset
-- Assets/Data/Pawns/Chess/white_pawn.asset
-- Assets/Prefabs/Pawn/TestPawn 3.prefab
-- Assets/Data/Pawns/Chess/black_king.asset
-- Assets/Data/Pawns/Chess/black_queen.asset
-- Assets/Data/Pawns/Chess/black_knight.asset
-- Assets/Data/Pawns/Chess/white_knight.asset
+- Assets/Data/Pawns/Chess/ch_white_king.asset
+- Assets/Data/Pawns/knight.asset
+- Assets/Data/Pawns/Chess/ch_white_rook.asset
+- Assets/Data/Pawns/Chess/ch_white_bishop.asset
+- Assets/Data/Pawns/Chess/ch_black_bishop.asset
+- Assets/Data/Pawns/Chess/ch_black_pawn.asset
+- Assets/Data/Pawns/Chess/ch_white_queen.asset
+- Assets/Data/Pawns/Chess/ch_black_rook.asset
+- Assets/Data/Pawns/Chess/ch_white_pawn.asset
+- Assets/Data/Pawns/Chess/ch_black_king.asset
+- Assets/Data/Pawns/Chess/ch_black_queen.asset
+- Assets/Data/Pawns/Chess/ch_black_knight.asset
+- Assets/Data/Pawns/Chess/ch_white_knight.asset
+- Assets/Data/Pawns/soldier.asset
 - Assets/Data/Pawns/test_pawn_1.asset
 - Assets/Data/Pawns/test_pawn_2.asset
-- Assets/Prefabs/Pawn/TestPawn.prefab
 - Assets/Data/Pawns/test_pawn_3.asset
 Dependencies: []

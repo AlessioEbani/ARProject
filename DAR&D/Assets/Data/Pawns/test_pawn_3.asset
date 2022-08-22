@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: test_pawn_3
   m_EditorClassIdentifier: 
   name: Asdrubale
+  description: "Il paladino pi\xF9 coraggioso che c'\xE8"
+  hasDetails: 1
   alignment: LB
   CR: 3
   type: Umanoide
-  description: "Il paladino pi\xF9 coraggioso che c'\xE8"
   model: {fileID: 1649547054411582166, guid: e74c7eb44cca3184db36964f21fa4b66, type: 3}
+  sprite: {fileID: 0}

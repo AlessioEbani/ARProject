@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: soldier
   m_EditorClassIdentifier: 
   name: Soldier
+  description: Loyal servant of the king
+  hasDetails: 1
   alignment: LB
   CR: 2
   type: Human
-  description: Loyal servant of the king
   model: {fileID: 2853338482309933643, guid: f92f1f683474f4641be9d91ef0c243a3, type: 3}
   sprite: {fileID: 0}
