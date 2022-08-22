@@ -5,24 +5,42 @@ public class UIManager : MonoBehaviour {
 	public GameObject landscapeCanvas;
 
 	public bool isPortrait;
+	public bool IsPortrait {
+		get => isPortrait;
+		set {
+			isPortrait = value;
+			landscapeCanvas.SetActive(!isPortrait && isEnabled);
+			portraitCanvas.SetActive(isPortrait && isEnabled);
+		}
+	}
+
+	private bool isEnabled = true;
+	public bool IsEnabled {
+		get => isEnabled;
+		set {
+			isEnabled = value;
+			landscapeCanvas.SetActive(!isPortrait && isEnabled);
+			portraitCanvas.SetActive(isPortrait && isEnabled);
+		}
+	}
 
 	private void Update() {
 		if (!isPortrait) {
 			if (Input.deviceOrientation == DeviceOrientation.Portrait ||
 			    Input.deviceOrientation == DeviceOrientation.PortraitUpsideDown) {
-				isPortrait = true;
-				landscapeCanvas.SetActive(false);
-				portraitCanvas.SetActive(true);
+				IsPortrait = true;
 			}
 		}
 		else {
 			if (Input.deviceOrientation == DeviceOrientation.LandscapeLeft ||
 			    Input.deviceOrientation == DeviceOrientation.LandscapeRight) {
-				isPortrait = false;
-				portraitCanvas.SetActive(false);
-				landscapeCanvas.SetActive(true);
+				IsPortrait = false;
 			}
 		}
+	}
+
+	public void ToggleUI() {
+		IsEnabled = !IsEnabled;
 	}
 
 }
