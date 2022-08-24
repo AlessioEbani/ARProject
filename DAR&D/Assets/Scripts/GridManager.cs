@@ -1,24 +1,20 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.XR.ARFoundation;
 
 public class GridManager : MonoBehaviour {
 	public Vector3Int gridSize;
 	public float gridUnit = 0.025f;
 
-	public TMP_InputField xSizeText;
-	public TMP_InputField zSizeText;
-	public TMP_InputField cellSizeText;
-	public Button deleteButton;
+	
 	public GameObject evenObject;
 	public GameObject oddObject;
 	public GameObject customGridPrefab;
 
+	public List<CanvasOverlay> canvasOverlays;
+	
 	private Vector3 gridPosition;
 	private Quaternion gridRotation;
 
@@ -34,13 +30,10 @@ public class GridManager : MonoBehaviour {
 	private void Start() {
 		arCursor = FindObjectOfType<ARCursor>();
 		mainCamera = Camera.main;
-		xSizeText.text = gridSize.x.ToString();
-		zSizeText.text = gridSize.z.ToString();
-		cellSizeText.text = gridUnit.ToString();
-		xSizeText.onEndEdit.AddListener(OnEndEditX);
-		zSizeText.onEndEdit.AddListener(OnEndEditZ);
-		cellSizeText.onEndEdit.AddListener(OnEndEditSize);
-		deleteButton.onClick.AddListener(DeleteGrid);
+		foreach (CanvasOverlay canvasOverlay in canvasOverlays) {
+			canvasOverlay.Init(gridSize,gridUnit);
+			canvasOverlay.BindActions(OnEndEditX,OnEndEditZ,OnEditSize,DeleteGrid);
+		}
 	}
 
 	private void OnEndEditX(string text) {
@@ -57,8 +50,8 @@ public class GridManager : MonoBehaviour {
 		}
 	}
 
-	private void OnEndEditSize(string text) {
-		var newSize = float.Parse(text,CultureInfo.InvariantCulture);
+	private void OnEditSize(float value) {
+		var newSize = value;
 		if (newSize != gridUnit) {
 			gridUnit = newSize;
 		}
