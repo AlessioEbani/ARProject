@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9671fa2e011048a8ae2a46ece99ddc0f, type: 3}
   m_Name: test_pawn_3
   m_EditorClassIdentifier: 
-  name: Asdrubale
-  description: "Il paladino pi\xF9 coraggioso che c'\xE8"
+  name: Test Pawn 3
+  description: Bellissima pedina nera
+  isCharacter: 1
   hasDetails: 1
   alignment: LB
   CR: 3
-  type: Human
+  type: Unknown
   model: {fileID: 1383871404536448455, guid: 43fa918908991b84fa980830f099067b, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 38b85fd327a539d4e885c62bd6231894, type: 3}

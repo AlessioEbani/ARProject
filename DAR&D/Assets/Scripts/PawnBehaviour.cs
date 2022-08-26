@@ -4,11 +4,11 @@
 public class PawnBehaviour : Snapper {
 	[HideInInspector] public Grid parentGrid;
 	public Pawn pawn;
+	public bool movable = true;
 	private int collision = 0;
 
 	protected override void Start() {
 		collision = 0;
-		UpdateSize();
 		SnapToGrid();
 	}
 

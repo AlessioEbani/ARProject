@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9671fa2e011048a8ae2a46ece99ddc0f, type: 3}
   m_Name: test_pawn_1
   m_EditorClassIdentifier: 
-  name: Drago Supremo
-  description: "Questo \xE8 un bellissimo drago"
+  name: Test Pawn
+  description: Bellissima pedina bianca
+  isCharacter: 1
   hasDetails: 1
   alignment: CN
-  CR: 16
-  type: Dragon
+  CR: 15
+  type: Unknown
   model: {fileID: 4579859949087020658, guid: e1aa69ff91d42aa4c970ca8d23eef8f4, type: 3}
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 121d227c227d5954daf57125243263ca, type: 3}

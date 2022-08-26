@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pawn:ScriptableObject {
 	public string name;
 	public string description;
+	public bool isCharacter = true;
 	public bool hasDetails;
 	public string alignment;
 	public string CR;

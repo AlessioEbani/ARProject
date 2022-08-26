@@ -15,7 +15,7 @@ public class PawnSearchBar : MonoBehaviour {
 
 	private List<MonsterItem> items;
 	private GameManager gameManager;
-	private bool alphabeticalOrder;
+	private bool alphabeticalOrder=true;
 
 	private void Start() {
 		gameManager = FindObjectOfType<GameManager>();
@@ -28,12 +28,7 @@ public class PawnSearchBar : MonoBehaviour {
 
 	private void ToggleSort() {
 		alphabeticalOrder = !alphabeticalOrder;
-		if (alphabeticalOrder) {
-			SortDataByName();
-		}
-		else {
-			SortDataByCR();
-		}
+		SortDataByName(alphabeticalOrder);
 	}
 
 	private void InstantiateAllData() {
@@ -44,7 +39,7 @@ public class PawnSearchBar : MonoBehaviour {
 			obj.GetComponent<Button>().onClick.AddListener(delegate { SpawnPawn(pawn); });
 			items.Add(obj);
 		}
-		SortDataByName();
+		SortDataByName(alphabeticalOrder);
 	}
 
 	private void SpawnPawn(Pawn pawn) {
@@ -58,13 +53,13 @@ public class PawnSearchBar : MonoBehaviour {
 		items.Clear();
 	}
 
-	private void SortDataByName() {
-		items = items.OrderBy(x => x.pawn.name).ThenBy(x => x.cr).ToList();
-		ReorderHierarchy();
-	}
-
-	private void SortDataByCR() {
-		items = items.OrderBy(x => x.cr).ThenBy(x => x.pawn.name).ToList();
+	private void SortDataByName(bool isCharacter) {
+		if (isCharacter) {
+			items = items.OrderBy(x => x.pawn.isCharacter).ThenBy(x => x.cr).ToList();
+		}
+		else {
+			items = items.OrderBy(x => !x.pawn.isCharacter).ThenBy(x => x.cr).ToList();
+		}
 		ReorderHierarchy();
 	}
 

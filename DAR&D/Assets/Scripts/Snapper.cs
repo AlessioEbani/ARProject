@@ -1,4 +1,4 @@
-using System;
+
 using UnityEngine;
 
 [ExecuteInEditMode]
@@ -18,26 +18,14 @@ public class Snapper : MonoBehaviour {
     public bool groundPivot;
     private float gridSize = 1;
 
-    private void OnDrawGizmos() {
-        if (!Application.isPlaying) {
-            UpdateSize();
-        }
-    }
-
     protected virtual void Start() {
-        UpdateSize();
-        GridManager.GridSizeUpdated += UpdateSize;
+        var localScale = transform.localScale;
+        size = new Vector3Int(Mathf.CeilToInt(localScale.x), Mathf.CeilToInt(localScale.y), Mathf.CeilToInt(localScale.z));
         gridSize = useGridScale ? GridManager.gridUnit : 1;
     }
 
     protected virtual void Update() {
         SnapToGrid();
-    }
-
-    protected void UpdateSize() {
-        var localScale = transform.localScale;
-        size = new Vector3Int(Mathf.CeilToInt(localScale.x), Mathf.CeilToInt(localScale.y), Mathf.CeilToInt(localScale.z));
-        
     }
 
     protected void SnapToGrid() {

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9671fa2e011048a8ae2a46ece99ddc0f, type: 3}
+  m_Name: wardrobe
+  m_EditorClassIdentifier: 
+  name: Wardrobe  2x1 (Dark Wood)
+  description: A simple wardrobe
+  isCharacter: 0
+  hasDetails: 0
+  alignment: 
+  CR: 
+  type: 
+  model: {fileID: 7073229053411428893, guid: 91b055fca55cec944915a01bd9766a56, type: 3}
+  sprite: {fileID: 21300000, guid: 7318032119e08e24a8020412e95bef65, type: 3}

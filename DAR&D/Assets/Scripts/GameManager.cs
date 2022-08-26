@@ -67,9 +67,15 @@ public class GameManager : MonoBehaviour {
 			RaycastHit hit;
 			var Ray = mainCamera.ScreenPointToRay(Input.GetTouch(0).position);
 			if (Physics.Raycast(Ray, out hit, 100000, pawnLayerMask)) {
-				dragging = true;
 				objectDragged = hit.collider.GetComponent<PawnBehaviour>();
-				startingPosition = objectDragged.transform.position;
+				if (objectDragged.movable) {
+					startingPosition = objectDragged.transform.position;
+					dragging = true;
+				}
+				else {
+					dragging = false;
+					objectDragged = null;
+				}
 			}
 		}
 	}

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1226337005
+CRC: 3575427545
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: eae9cdc7ab8f3efc7cc8dbcffc6f15d5
+    Hash: ccc743141c5aa900bf3ecb2b527a8c52
   TypeTreeHash:
     serializedVersion: 2
-    Hash: e89c343199d4b0300bceaa26a36a7db4
+    Hash: 647284595ee26e6b6629a95c1bd051ca
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -31,7 +31,11 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 65
   Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
 - Class: 90
+  Script: {instanceID: 0}
+- Class: 91
   Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
@@ -47,21 +51,73 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Data/Pawns/Chess/ch_white_king.asset
+- Assets/Sprites/Pawns/deskSprite.png
 - Assets/Data/Pawns/knight.asset
+- Assets/Sprites/Pawns/Chess/white_bishop_sprite.png
 - Assets/Data/Pawns/Chess/ch_white_rook.asset
+- Assets/Sprites/Pawns/Chess/black_king_sprite.png
+- Assets/Sprites/Pawns/knightSprite.png
+- Assets/Prefabs/Pawn/TestPawn3 Variant.prefab
+- Assets/Sprites/Pawns/Chess/white_king_sprite.png
+- Assets/Prefabs/Pawn/Chess/BlackBishop.prefab
+- Assets/Prefabs/Pawn/Chess/BlackKing.prefab
+- Assets/Sprites/Pawns/lichSprite.png
+- Assets/Prefabs/Maps/Decorations/Desk Variant.prefab
+- Assets/Prefabs/Maps/Decorations/Wardrobe  2 Variant.prefab
+- Assets/Sprites/Pawns/testPawn3Sprite.png
+- Assets/Data/Pawns/Decorations/wardrobe_2.asset
 - Assets/Data/Pawns/Chess/ch_white_bishop.asset
-- Assets/Data/Pawns/Chess/ch_black_bishop.asset
-- Assets/Data/Pawns/Chess/ch_black_pawn.asset
+- Assets/Prefabs/Maps/Decorations/Wardrobe Variant.prefab
+- Assets/Prefabs/Pawn/RPG/Soldier1.prefab
+- Assets/Sprites/Pawns/wardrobeSprite.png
+- Assets/Sprites/Pawns/Chess/white_rook_icon.png
+- Assets/Prefabs/Pawn/Chess/WhitePawn.prefab
 - Assets/Data/Pawns/Chess/ch_white_queen.asset
 - Assets/Data/Pawns/Chess/ch_black_rook.asset
 - Assets/Data/Pawns/Chess/ch_white_pawn.asset
-- Assets/Data/Pawns/Chess/ch_black_king.asset
+- Assets/Sprites/Pawns/Chess/white_pawn_sprite.png
+- Assets/Prefabs/Pawn/Chess/WhiteKnight.prefab
+- Assets/Sprites/Pawns/testPawn2Sprite.png
 - Assets/Data/Pawns/Chess/ch_black_queen.asset
-- Assets/Data/Pawns/Chess/ch_black_knight.asset
-- Assets/Data/Pawns/Chess/ch_white_knight.asset
+- Assets/Sprites/Pawns/chairSprite.png
+- Assets/Sprites/Pawns/Chess/black_rook_sprite.png
 - Assets/Data/Pawns/soldier.asset
-- Assets/Data/Pawns/test_pawn_1.asset
+- Assets/Sprites/Pawns/soldier1Sprite.png
 - Assets/Data/Pawns/test_pawn_2.asset
+- Assets/Sprites/Pawns/Chess/white_knight_sprite.png
+- Assets/Prefabs/Pawn/TestPawn.prefab
+- Assets/Data/Pawns/test_pawn_1.asset
+- Assets/Data/Pawns/Chess/ch_white_king.asset
+- Assets/Prefabs/Maps/Decorations/Bed Variant.prefab
+- Assets/Sprites/Pawns/Chess/black_knight_sprite.png
+- Assets/Data/Pawns/Decorations/wardrobe.asset
+- Assets/Prefabs/Pawn/TestPawn2 Variant.prefab
+- Assets/Sprites/Pawns/Chess/black_pawn_sprite.png
+- Assets/Data/Pawns/Chess/ch_black_knight.asset
+- Assets/Prefabs/Pawn/BasicPawn.prefab
+- Assets/Sprites/Pawns/Chess/black_queen_sprite.png
+- Assets/Prefabs/Pawn/Chess/WhiteKing.prefab
+- Assets/Data/Pawns/Chess/ch_black_bishop.asset
+- Assets/Data/Pawns/Chess/ch_black_pawn.asset
+- Assets/Prefabs/Maps/Decorations/Chair Variant.prefab
+- Assets/Prefabs/Pawn/Chess/WhiteQueen.prefab
+- Assets/Sprites/Pawns/testPawn1Sprite.png
+- Assets/Data/Pawns/Decorations/desk.asset
+- Assets/Prefabs/Pawn/Chess/BlackQueen.prefab
+- Assets/Prefabs/Pawn/Chess/WhiteBishop.prefab
+- Assets/Data/Pawns/Chess/ch_black_king.asset
+- Assets/Prefabs/Pawn/Chess/WhiteRook.prefab
+- Assets/Prefabs/Pawn/Chess/BlackKnight.prefab
+- Assets/Data/Pawns/Chess/ch_white_knight.asset
+- Assets/Prefabs/Pawn/Chess/BlackRook.prefab
+- Assets/Data/Pawns/Decorations/bed.asset
+- Assets/Sprites/Pawns/Chess/black_bishop_sprite.png
+- Assets/Prefabs/Pawn/RPG/Knight.prefab
+- Assets/Prefabs/Pawn/Chess/BlackPawn.prefab
+- Assets/Sprites/Pawns/bedSprite.png
+- Assets/Data/Pawns/Decorations/chair.asset
+- Assets/Prefabs/Pawn/RPG/Lich.prefab
+- Assets/Sprites/Pawns/Chess/white_queen_sprite.png
+- Assets/Data/Pawns/lich.asset
 - Assets/Data/Pawns/test_pawn_3.asset
 Dependencies: []

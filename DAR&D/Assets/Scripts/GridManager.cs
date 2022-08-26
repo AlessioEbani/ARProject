@@ -34,6 +34,7 @@ public class GridManager : MonoBehaviour {
 			canvasOverlay.Init(gridSize,gridUnit);
 			canvasOverlay.BindActions(OnEndEditX,OnEndEditZ,OnEditSize,DeleteGrid);
 		}
+		arCursor.transform.localScale = new Vector3(gridUnit,gridUnit,gridUnit);
 	}
 
 	private void OnEndEditX(string text) {
@@ -55,6 +56,7 @@ public class GridManager : MonoBehaviour {
 		if (newSize != gridUnit) {
 			gridUnit = newSize;
 		}
+		arCursor.transform.localScale = new Vector3(gridUnit,gridUnit,gridUnit);
 		GridSizeUpdated?.Invoke();
 	}
 
