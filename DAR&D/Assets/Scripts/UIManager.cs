@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour {
@@ -22,6 +23,10 @@ public class UIManager : MonoBehaviour {
 			landscapeCanvas.SetActive(!isPortrait && isEnabled);
 			portraitCanvas.SetActive(isPortrait && isEnabled);
 		}
+	}
+
+	private void Start() {
+		IsPortrait = false;
 	}
 
 	private void Update() {

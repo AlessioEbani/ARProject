@@ -1,7 +1,6 @@
-using System;
+
 using TMPro;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CanvasOverlay : MonoBehaviour
@@ -17,11 +16,11 @@ public class CanvasOverlay : MonoBehaviour
 		cellSize.value = gridUnit;
 	}
 
-	public void BindActions(UnityAction<string> xsize,UnityAction<string>  zsize,UnityAction<float> cellSizeAction,UnityAction deleteButtonAction) {
-		xSizeText.onEndEdit.AddListener(xsize);
-		zSizeText.onEndEdit.AddListener(zsize);
-		cellSize.onValueChanged.AddListener(cellSizeAction);
-		deleteButton.onClick.AddListener(deleteButtonAction);
-		
-	}
+	// public void BindActions(UnityAction<string> xsize,UnityAction<string>  zsize,UnityAction<float> cellSizeAction,UnityAction deleteButtonAction) {
+	// 	xSizeText.onEndEdit.AddListener(xsize);
+	// 	zSizeText.onEndEdit.AddListener(zsize);
+	// 	cellSize.onValueChanged.AddListener(cellSizeAction);
+	// 	deleteButton.onClick.AddListener(deleteButtonAction);
+	// 	
+	// }
 }

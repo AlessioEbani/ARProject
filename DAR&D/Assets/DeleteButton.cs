@@ -1,17 +1,14 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class DeleteButton : MonoBehaviour {
 	private Animator animator;
-	private Button button;
 
 	private bool touched;
 	public bool Touched => touched;
 
 	private void Start() {
 		animator = GetComponent<Animator>();
-		button = GetComponent<Button>();
 	}
 
 	private void Update() {

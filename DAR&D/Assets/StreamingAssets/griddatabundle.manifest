@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 343538413
+CRC: 4085896561
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 48b13a7572dfbd45e5ca8591c118b269
+    Hash: 86b5025f3cf16fbdf074874442fe5cfe
   TypeTreeHash:
     serializedVersion: 2
     Hash: 66eb7517dbd7079aa0cc6abcdb2af688
@@ -50,14 +50,20 @@ Assets:
 - Assets/Prefabs/Maps/DarkRoom.prefab
 - Assets/Prefabs/Maps/Tiles/TileWhite.prefab
 - Assets/Data/GridPreset/chess_board.asset
+- Assets/Data/GridPreset/blank_board(4x4).asset
+- Assets/Prefabs/Maps/Board8x8.prefab
 - Assets/Data/GridPreset/dark_room.asset
 - Assets/Prefabs/Maps/CustomBoard.prefab
 - Assets/Sprites/customboard.png
 - Assets/Prefabs/Maps/Tiles/TileBlack.prefab
 - Assets/Prefabs/Maps/Tiles/GridTrigger.prefab
+- Assets/Data/GridPreset/blank_board(8x8).asset
+- Assets/Prefabs/Maps/Board12x12.prefab
 - Assets/Prefabs/Maps/Tiles/TileDarkFloor.prefab
 - Assets/Sprites/Pawns/Chess/chessboard.png
 - Assets/Prefabs/Maps/ChessBoard.prefab
+- Assets/Data/GridPreset/blank_board(12x12).asset
+- Assets/Prefabs/Maps/Board4x4.prefab
 - Assets/Data/GridPreset/custom_board.asset
 Dependencies:
 - E:/Desktop/Axel/Repositories/Unity/ARProject2/DAR&D/Assets/StreamingAssets/pawndatabundle

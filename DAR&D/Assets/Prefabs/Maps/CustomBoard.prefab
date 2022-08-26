@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   instantiedPawns: []
+  pawnParent: {fileID: 5391582567647464800}
 --- !u!65 &5347716182164277347
 BoxCollider:
   m_ObjectHideFlags: 0

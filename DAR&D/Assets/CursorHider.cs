@@ -3,16 +3,16 @@ using UnityEngine.UI;
 
 public class CursorHider : MonoBehaviour {
 	private Button self;
-	private GameObject arCursor;
+	private ARCursor arCursor;
 
 	private void Awake() {
 		self = GetComponent<Button>();
-		arCursor = FindObjectOfType<ARCursor>().gameObject;
+		arCursor = FindObjectOfType<ARCursor>();
 		self.onClick.AddListener(ToggleCursor);
 	}
 
 	private void ToggleCursor() {
-		arCursor.SetActive(!arCursor.activeSelf);
+		arCursor.gameObject.SetActive(!arCursor.gameObject.activeSelf);
 	}
 
 }

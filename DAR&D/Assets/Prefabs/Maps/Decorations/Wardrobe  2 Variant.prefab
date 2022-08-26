@@ -13,6 +13,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 525ef223c295292469db0f96bc9af15d,
         type: 2}
+    - target: {fileID: 1942355871241025870, guid: a44ca62337050f74689ab3447dc0d6c5,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4579859949087020657, guid: a44ca62337050f74689ab3447dc0d6c5,
         type: 3}
       propertyPath: m_RootOrder
@@ -31,7 +36,7 @@ PrefabInstance:
     - target: {fileID: 4579859949087020657, guid: a44ca62337050f74689ab3447dc0d6c5,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4579859949087020657, guid: a44ca62337050f74689ab3447dc0d6c5,
         type: 3}
@@ -41,7 +46,7 @@ PrefabInstance:
     - target: {fileID: 4579859949087020657, guid: a44ca62337050f74689ab3447dc0d6c5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4579859949087020657, guid: a44ca62337050f74689ab3447dc0d6c5,
         type: 3}
@@ -81,7 +86,7 @@ PrefabInstance:
     - target: {fileID: 4579859949087020658, guid: a44ca62337050f74689ab3447dc0d6c5,
         type: 3}
       propertyPath: m_Name
-      value: Wardrobe  2
+      value: Wardrobe  2 Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a44ca62337050f74689ab3447dc0d6c5, type: 3}
@@ -152,6 +157,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4137913354369424, guid: 6a30c620bcca8ed448dd43ba86c3f699, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64142478414144850, guid: 6a30c620bcca8ed448dd43ba86c3f699,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64231187810665544, guid: 6a30c620bcca8ed448dd43ba86c3f699,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 64592073696785998, guid: 6a30c620bcca8ed448dd43ba86c3f699,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65490184224795520, guid: 6a30c620bcca8ed448dd43ba86c3f699,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 65585224625052552, guid: 6a30c620bcca8ed448dd43ba86c3f699,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

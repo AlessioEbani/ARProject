@@ -11,7 +11,6 @@ public class GridManager : MonoBehaviour {
 	
 	public GameObject evenObject;
 	public GameObject oddObject;
-	public GameObject customGridPrefab;
 
 	public List<CanvasOverlay> canvasOverlays;
 	
@@ -32,7 +31,10 @@ public class GridManager : MonoBehaviour {
 		mainCamera = Camera.main;
 		foreach (CanvasOverlay canvasOverlay in canvasOverlays) {
 			canvasOverlay.Init(gridSize,gridUnit);
-			canvasOverlay.BindActions(OnEndEditX,OnEndEditZ,OnEditSize,DeleteGrid);
+			canvasOverlay.xSizeText.onEndEdit.AddListener(OnEndEditX);
+			canvasOverlay.zSizeText.onEndEdit.AddListener(OnEndEditZ);
+			canvasOverlay.cellSize.onValueChanged.AddListener(OnEditSize);
+			canvasOverlay.deleteButton.onClick.AddListener(DeleteGrid);
 		}
 		arCursor.transform.localScale = new Vector3(gridUnit,gridUnit,gridUnit);
 	}
@@ -74,9 +76,12 @@ public class GridManager : MonoBehaviour {
 	}
 
 	private void InitCustomGrid(Transform newGrid) {
-		for (int i = -gridSize.x / 2; i < gridSize.x / 2; i++) {
+		var upperXLimit = gridSize.x % 2 == 0 ? gridSize.x / 2 : (gridSize.x / 2) + 1;
+		var upperZLimit = gridSize.z % 2 == 0 ? gridSize.z / 2 : (gridSize.z / 2) + 1;
+		
+		for (int i = -gridSize.x / 2; i < upperXLimit; i++) {
 			for (int j = 0; j < 1; j++) {
-				for (int k = -gridSize.z / 2; k < gridSize.z / 2; k++) {
+				for (int k = -gridSize.z / 2; k < upperZLimit; k++) {
 					Vector3 newPosition = new Vector3(i, gridPosition.y, k);
 					GameObject obj;
 					if ((i + k) % 2 == 0) {
