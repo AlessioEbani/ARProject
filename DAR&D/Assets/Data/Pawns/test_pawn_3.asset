@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Bellissima pedina nera
   isCharacter: 1
   hasDetails: 1
-  alignment: LB
+  alignment: LG
   CR: 3
   type: Unknown
   model: {fileID: 1383871404536448455, guid: 43fa918908991b84fa980830f099067b, type: 3}

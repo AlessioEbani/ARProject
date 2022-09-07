@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class PawnSearchBar : MonoBehaviour {
-	private const string RegexMatch = "^(?'Name'([a-zA-Z]+))? ?(CR((?'CR'(\\d+)|(1\\/\\d))))? ?(\\/(?'Alignment'((L|N|C)?)((B|N|B)?)))?$";
+	private const string RegexMatch = "^(?'Name'([a-zA-Z]+))? ?(CR((?'CR'(\\d+)|(1\\/\\d))))? ?(\\/(?'Alignment'((L|N|C)?)((G|N|E)?)))?$";
 
 	public MonsterItem itemPrefab;
 	public Transform content;

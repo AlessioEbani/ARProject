@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Loyal servant of the king
   isCharacter: 1
   hasDetails: 1
-  alignment: CM
+  alignment: CE
   CR: 10
   type: Undead
   model: {fileID: 4675384758405172576, guid: bc485eaa4a99c6b43b86821e065303a6, type: 3}

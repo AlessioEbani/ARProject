@@ -36,7 +36,8 @@ public class GameManager : MonoBehaviour {
 	private Vector3 startingPosition;
 
 	public ARRaycastManager raycastManager;
-	public DeleteButton deleteButton;
+	public DeleteButton deleteButton1;
+	public DeleteButton deleteButton2;
 	public TextMeshProUGUI phaseText;
 
 	private void Awake() {
@@ -88,17 +89,17 @@ public class GameManager : MonoBehaviour {
 				objectDragged.transform.position = new Vector3(hit.point.x, objectDragged.transform.position.y, hit.point.z);
 			}
 
-			if (deleteButton.Touched) {
-				deleteButton.TouchedWithPawn();
+			if (DeleteButtonTouched()) {
+				SetTouched();
 				if (Input.GetTouch(0).phase == TouchPhase.Ended) {
 					GridManager.DeletePawn(objectDragged);
-					deleteButton.Normal();
+					SetNormal();
 					objectDragged = null;
 					dragging = false;
 				}
 			}
 			else {
-				deleteButton.Normal();
+				SetNormal();
 				if (Input.GetTouch(0).phase == TouchPhase.Ended) {
 					dragging = false;
 					if (objectDragged.IsColliding()) {
@@ -116,5 +117,20 @@ public class GameManager : MonoBehaviour {
 				objectDragged.transform.position = new Vector3(hit.point.x, objectDragged.transform.position.y, hit.point.z);
 			}
 		}
+		
+	}
+
+	private bool DeleteButtonTouched() {
+		return deleteButton1.Touched || deleteButton2.Touched;
+	}
+
+	private void SetNormal() {
+		deleteButton1.Normal();
+		deleteButton2.Normal();
+	}
+
+	private void SetTouched() {
+		deleteButton1.TouchedWithPawn();
+		deleteButton2.TouchedWithPawn();
 	}
 }

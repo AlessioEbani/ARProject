@@ -10,7 +10,7 @@ public class GridItem : MonoBehaviour {
 	public GridPreset gridPreset;
 
 	public void Set(GridPreset gridPreset) {
-		name.text = gridPreset.name;
+		name.text = gridPreset.gridName;
 		image.sprite = gridPreset.sprite;
 		description.text = gridPreset.description;
 		this.gridPreset = gridPreset;

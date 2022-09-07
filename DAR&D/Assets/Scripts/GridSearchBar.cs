@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class GridSearchBar : MonoBehaviour
 {
-    private const string RegexMatch = "";
+    private const string RegexMatch = "^(?'Name'([a-zA-Z]+))?$";
 
 	public GridItem itemPrefab;
 	public Transform content;
@@ -62,7 +62,7 @@ public class GridSearchBar : MonoBehaviour
 	}
 
 	private void SortDataByName() {
-		items = items.OrderBy(x => x.gridPreset.name).ToList();
+		items = items.OrderBy(x => x.gridPreset.gridName).ToList();
 		ReorderHierarchy();
 	}
 
@@ -77,13 +77,7 @@ public class GridSearchBar : MonoBehaviour
 		string pawnName = !match.Groups["Name"].Value.IsNullOrEmpty() ? match.Groups["Name"].Value : "";
 
 		for (int i = 0; i < items.Count; i++) {
-			if (items[i].gridPreset.name.ToLower().Contains(pawnName.ToLower())) 
-			{
-				items[i].gameObject.SetActive(true);
-			}
-			else {
-				items[i].gameObject.SetActive(false);
-			}
+			items[i].gameObject.SetActive(items[i].gridPreset.gridName.ToLower().Contains(pawnName.ToLower()));
 		}
 	}
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Bellissima pedina rossa
   isCharacter: 1
   hasDetails: 1
-  alignment: CM
+  alignment: CE
   CR: 1/3
   type: Unknown
   model: {fileID: 483006247876627586, guid: 80f587275e49a5043b1ca2d3f343936f, type: 3}

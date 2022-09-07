@@ -16,7 +16,7 @@ MonoBehaviour:
   description: Loyal servant of the king
   isCharacter: 1
   hasDetails: 1
-  alignment: LB
+  alignment: LG
   CR: 2
   type: Human
   model: {fileID: 2853338482309933643, guid: f92f1f683474f4641be9d91ef0c243a3, type: 3}
